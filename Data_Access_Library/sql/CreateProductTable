@@ -1,0 +1,8 @@
+ALTER TABLE `Ordering_System`.`Product` DROP COLUMN `QTY`;
+30)  NOT NULL,
+  `Name` VARCHAR(50) ,
+  `QTY` INT ,
+  `Price` NUMERIC ,
+  PRIMARY KEY (`SKU`)
+)
+ENGINE = MyISAM;

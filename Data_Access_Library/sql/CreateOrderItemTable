@@ -1,0 +1,8 @@
+CREATE TABLE `Ordering_System`.`OrderItem` (
+  `OID` INT  NOT NULL AUTO_INCREMENT,
+  `ProdSKU` VARCHAR(30)  NOT NULL,
+  `QTY` INT ,
+  `Amount` NUMERIC ,
+  PRIMARY KEY (`OID`)
+)
+ENGINE = MyISAM;
