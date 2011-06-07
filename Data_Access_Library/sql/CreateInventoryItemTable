@@ -1,0 +1,7 @@
+CREATE TABLE `Ordering_System`.`InventoryItem` (
+  `ID` INT  NOT NULL AUTO_INCREMENT,
+  `SKU` VARCHAR(30) ,
+  `QTY` INT ,
+  PRIMARY KEY (`ID`)
+)
+ENGINE = MyISAM;

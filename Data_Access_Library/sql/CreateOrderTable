@@ -1,0 +1,11 @@
+CREATE TABLE `Ordering_System`.`Order` (
+  `ID` INT ,
+  `CustomerID` INT ,
+  `Date` DATE  NOT NULL,
+  `OrderStatus` INT  DEFAULT 0,
+  `ProductID` VARCHAR  NOT NULL,
+  `OrderQty` INT  NOT NULL DEFAULT 1,
+  `TotalAmount` NUMERIC  NOT NULL DEFAULT 0,
+  PRIMARY KEY (`ID`)
+)
+ENGINE = MyISAM;
