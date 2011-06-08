@@ -16,7 +16,7 @@ public class Customer {
 	private BigDecimal totalPaidAmt;
 	private BigDecimal totalUnpaidAmt;
 	
-	Customer(int id, String name){
+	public Customer(int id, String name){
 		this.id = id;
 		this.name = name;
 		this.creditLimit = new BigDecimal("10000.00");	

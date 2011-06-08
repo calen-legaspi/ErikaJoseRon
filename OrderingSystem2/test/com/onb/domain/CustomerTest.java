@@ -3,7 +3,6 @@ package com.onb.domain;
 import java.math.BigDecimal;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
