@@ -15,5 +15,11 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="/home/erikathea/httpunit-1.7/jars/servlet-api-2.4.jar"/>
+	<classpathentry kind="lib" path="/home/erikathea/httpunit-1.7/jars/activation-1.1.jar"/>
+	<classpathentry kind="lib" path="/home/erikathea/httpunit-1.7/jars/jtidy-4aug2000r7-dev.jar"/>
+	<classpathentry kind="lib" path="/home/erikathea/httpunit-1.7/jars/nekohtml-0.9.5.jar"/>
+	<classpathentry kind="lib" path="/home/erikathea/httpunit-1.7/jars/xmlParserAPIs-2.6.1.jar"/>
+	<classpathentry kind="lib" path="/home/erikathea/httpunit-1.7/jars/xercesImpl-2.6.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
