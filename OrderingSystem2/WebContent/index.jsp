@@ -10,7 +10,7 @@
 
 <%= session.getAttribute("testText") %>
 
-<form method="post" action="superduperServlet">
+<form method="post" action="testing">
 	<input type= "text" name="name"/>
    <input type= "text" name="id"/>
    <input type="submit"/>
