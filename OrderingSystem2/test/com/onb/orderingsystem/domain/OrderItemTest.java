@@ -1,4 +1,4 @@
-package com.onb.domain;
+package com.onb.orderingsystem.domain;
 
 
 
@@ -7,8 +7,9 @@ import java.math.BigDecimal;
 import junit.framework.Assert;
 
 import org.junit.Test;
-import com.onb.domain.OrderItem;
-import com.onb.domain.Product;
+
+import com.onb.orderingsystem.domain.OrderItem;
+import com.onb.orderingsystem.domain.Product;
 public class OrderItemTest {
 
 	@Test

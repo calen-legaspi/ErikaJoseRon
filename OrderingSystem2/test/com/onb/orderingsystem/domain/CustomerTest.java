@@ -1,4 +1,4 @@
-package com.onb.domain;
+package com.onb.orderingsystem.domain;
 
 import java.math.BigDecimal;
 import java.util.LinkedHashSet;
@@ -6,6 +6,11 @@ import java.util.Set;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.onb.orderingsystem.domain.Customer;
+import com.onb.orderingsystem.domain.Order;
+import com.onb.orderingsystem.domain.OrderItem;
+import com.onb.orderingsystem.domain.Product;
 
 public class CustomerTest {
 	private Customer customer;

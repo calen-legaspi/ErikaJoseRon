@@ -1,12 +1,12 @@
-package com.onb.domain;
+package com.onb.orderingsystem.domain;
 
 
 
 import java.util.LinkedHashSet;
 
-import com.onb.domain.Inventory;
-import com.onb.domain.InventoryItem;
-import com.onb.domain.Product;
+import com.onb.orderingsystem.domain.Inventory;
+import com.onb.orderingsystem.domain.InventoryItem;
+import com.onb.orderingsystem.domain.Product;
 
 import org.junit.Assert;
 import org.junit.Test;

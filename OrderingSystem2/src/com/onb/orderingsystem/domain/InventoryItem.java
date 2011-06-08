@@ -1,15 +1,11 @@
-package com.onb.domain;
+package com.onb.orderingsystem.domain;
+import com.onb.orderingsystem.domain.Product;
 
-import java.math.BigDecimal;
-
-import com.onb.domain.Product;
-
-public class OrderItem {
+public class InventoryItem {
 	private int quantity;
 	private Product product;
-	private BigDecimal amount;
 	
-	public OrderItem(Product product, int quantity){
+	public InventoryItem(Product product, int quantity){
 		this.product = product;
 		this.quantity = quantity;
 	}
@@ -17,29 +13,19 @@ public class OrderItem {
 	public Product getProduct(){
 		return this.product;
 	}
-
+	
 	public int getQuantity(){
 		return this.quantity;
 	}
 	
-	public void addQuantity(int quantity){
-		this.quantity += quantity;
-	}
-	
-	public void setProduct(Product product){
-		this.product = product;
-	}
-	
-	public BigDecimal computeAmount(){
-		this.amount = product.getPrice().multiply(new BigDecimal(quantity));
-		return this.amount;
+	public void updateQuantity(int quantity){
+		this.quantity = this.quantity-quantity;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((amount == null) ? 0 : amount.hashCode());
 		result = prime * result + ((product == null) ? 0 : product.hashCode());
 		result = prime * result + quantity;
 		return result;
@@ -53,12 +39,7 @@ public class OrderItem {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		OrderItem other = (OrderItem) obj;
-		if (amount == null) {
-			if (other.amount != null)
-				return false;
-		} else if (!amount.equals(other.amount))
-			return false;
+		InventoryItem other = (InventoryItem) obj;
 		if (product == null) {
 			if (other.product != null)
 				return false;
@@ -68,6 +49,5 @@ public class OrderItem {
 			return false;
 		return true;
 	}
-	
-	
+
 }

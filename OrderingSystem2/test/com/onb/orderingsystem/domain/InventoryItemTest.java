@@ -1,11 +1,12 @@
-package com.onb.domain;
+package com.onb.orderingsystem.domain;
 
 
 
 import org.junit.Assert;
 import org.junit.Test;
-import com.onb.domain.InventoryItem;
-import com.onb.domain.Product;
+
+import com.onb.orderingsystem.domain.InventoryItem;
+import com.onb.orderingsystem.domain.Product;
 public class InventoryItemTest {
 
 	@Test

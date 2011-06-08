@@ -1,7 +1,11 @@
-package com.onb.domain;
+package com.onb.orderingsystem.domain;
 
 import java.math.BigDecimal;
 import org.junit.*;
+
+import com.onb.orderingsystem.domain.Order;
+import com.onb.orderingsystem.domain.OrderItem;
+import com.onb.orderingsystem.domain.Product;
 
 public class OrderTest {
 

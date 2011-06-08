@@ -1,4 +1,4 @@
-package com.onb.servlet;
+package com.onb.orderingsystem.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

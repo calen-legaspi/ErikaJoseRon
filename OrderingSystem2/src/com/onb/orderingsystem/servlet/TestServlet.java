@@ -1,4 +1,4 @@
-package com.onb.servlet;
+package com.onb.orderingsystem.servlet;
 
 
 import java.io.IOException;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.onb.domain.Customer;
+import com.onb.orderingsystem.domain.Customer;
 
 
 

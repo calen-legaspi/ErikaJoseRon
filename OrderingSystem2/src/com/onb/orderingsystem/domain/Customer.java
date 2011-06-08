@@ -1,4 +1,4 @@
-package com.onb.domain;
+package com.onb.orderingsystem.domain;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

@@ -1,4 +1,4 @@
-package com.onb.domain;
+package com.onb.orderingsystem.domain;
 
 import java.util.LinkedHashSet;
 import java.util.Set;

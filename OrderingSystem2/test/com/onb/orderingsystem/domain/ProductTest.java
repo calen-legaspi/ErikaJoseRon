@@ -1,4 +1,4 @@
-package com.onb.domain;
+package com.onb.orderingsystem.domain;
 
 
  
@@ -6,7 +6,8 @@ import java.math.BigDecimal;
 
 
 import org.junit.*;
-import com.onb.domain.Product;
+
+import com.onb.orderingsystem.domain.Product;
 
 public class ProductTest {
 	private Product product;
