@@ -15,6 +15,7 @@
  */
 package com.onb.orderingsystem.sql;
 
+import java.io.Closeable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -23,7 +24,7 @@ import java.sql.SQLException;
  * 
  * @since Jun-7-2011
  */
-public interface DataSource {
+public interface DataSource extends Closeable {
     
     ResultSet executeQuery(String sql) throws java.sql.SQLException;
     

@@ -15,12 +15,11 @@
  */
 package com.onb.orderingsystem.sql;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * A simple connection for sending and executing
@@ -95,5 +94,20 @@ public class MySqlConnector implements DataSource {
     @Override
     public int executeUpdate(String sql) throws SQLException {
         return conn.createStatement().executeUpdate(sql);
+    }
+
+    /**
+     * Closes this active connection.
+     * 
+     * @throws IOException if an SQL error occur.
+     */
+    @Override
+    public void close() throws IOException {
+        try {
+            conn.close();
+            MySqlConnector.singletonInstance = null;
+        } catch (SQLException ex) {
+            throw new IOException(ex);
+        }
     }
 }
