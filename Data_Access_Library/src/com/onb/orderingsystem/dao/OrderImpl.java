@@ -16,33 +16,37 @@
 package com.onb.orderingsystem.dao;
 
 import com.onb.orderingsystem.domain.Order;
+import com.onb.orderingsystem.sql.DataSource;
 
 /**
- * Data access interface for inserting new order
- * and order retrieval.
+ * Default implementation of OrderDAO interface.
  * 
- * @since Jun-7-2011
+ * @since Jun-8-2011
  * @see "Core J2EE Patterns - Data Access Object"
+ * @see <a href="http://goo.gl/1WAAs">"Don't Repeat The DAO! Naming DAO"</a>
  */
-public interface OrderDAO {
+public class OrderImpl implements OrderDAO {
 
-    /**
-     * Retrieve order information.
-     * 
-     * @param orderID
-     * @return a value-objects with order information.
-     */
-    Order findOrderByID(int orderID);
+    private DataSource dataSource;
 
-    /**
-     * Insert new order to the data-store.
-     * 
-     * NOTE: This method is made public in the hope that it will be useful
-     * although performance wise CMP is much suitable for updating
-     * the data-store.
-     * 
-     * @param newOrder
-     * @return 
-     */
-    int insertOrder(Order newOrder);
+    public OrderImpl(DataSource dataSource) {
+        setDataSource(dataSource);
+    }
+
+    @Override
+    public Order findOrderByID(int orderID) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public int insertOrder(Order newOrder) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    private void setDataSource(DataSource dataSource) {
+        if (dataSource == null) {
+            throw new NullPointerException();
+        }
+        this.dataSource = dataSource;
+    }
 }

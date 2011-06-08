@@ -15,34 +15,39 @@
  */
 package com.onb.orderingsystem.dao;
 
-import com.onb.orderingsystem.domain.Order;
+import com.onb.orderingsystem.domain.InventoryItem;
+import java.sql.SQLException;
 
 /**
- * Data access interface for inserting new order
- * and order retrieval.
+ * A data-access interface for updating and fetching of
+ * product information on the inventory.
  * 
- * @since Jun-7-2011
+ * @since Jun-8-2011
  * @see "Core J2EE Patterns - Data Access Object"
  */
-public interface OrderDAO {
+public interface InventoryItemDAO {
 
     /**
-     * Retrieve order information.
-     * 
-     * @param orderID
-     * @return a value-objects with order information.
-     */
-    Order findOrderByID(int orderID);
-
-    /**
-     * Insert new order to the data-store.
+     * Updates product quantity to new quantity.
      * 
      * NOTE: This method is made public in the hope that it will be useful
      * although performance wise CMP is much suitable for updating
      * the data-store.
      * 
-     * @param newOrder
-     * @return 
+     * @param sku the stock-keeping unit of a product to be updated.
+     * @param newQuantity the remaining product quantity.
+     * @return the number of rows affected.
+     * @throws SQLException if an SQL error occurs.
      */
-    int insertOrder(Order newOrder);
+    int updateProductQuantity(String sku, int newQuantity) throws SQLException;
+
+    /**
+     * Fetch inventory item information. The information consist
+     * of the remaining product quantity and product information itself.
+     * 
+     * @param sku the stock-keeping unit of the inventory item.
+     * @return a value-object with inventory item information.
+     * @throws SQLException if an SQL error occurs.
+     */
+    InventoryItem findItemBySKU(String sku) throws SQLException;
 }

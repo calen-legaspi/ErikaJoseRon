@@ -18,14 +18,14 @@ package com.onb.orderingsystem.sql;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- *
+ * Test MySqlConnector class.
+ * 
  * @since Jun-8-2011
  */
 public class MySqlConnectorTest {
@@ -39,15 +39,15 @@ public class MySqlConnectorTest {
 
     @Test
     public void testExecuteQuery() throws SQLException {
-        String sql = "SELECT Name, CreditLimit, PaidAmount FROM Customer" +
-                " WHERE Customer.ID = 1;";
+        String sql = "SELECT Name, CreditLimit, PaidAmount FROM Customer"
+                + " WHERE Customer.ID = 1;";
         ResultSet rs = ds.executeQuery(sql);
         int rowCount = 0;
-        
+
         while (rs.next()) {
             ++rowCount;
         }
-        
+
         Assert.assertEquals(rowCount, 1);
     }
 

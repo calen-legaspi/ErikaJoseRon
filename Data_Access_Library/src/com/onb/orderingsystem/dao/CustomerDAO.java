@@ -17,18 +17,47 @@ package com.onb.orderingsystem.dao;
 
 import com.onb.orderingsystem.domain.Customer;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 
 /**
  * Data access interface for updating and search
  * for customer records.
  * 
  * @since Jun-7-2011
+ * @see "Core J2EE Patterns - Data Access Object"
  */
 public interface CustomerDAO {
-    
-    Customer findCustomerByID(int id);
-    
+
+    /**
+     * Fetch the information of a customer stored
+     * on the data-stores.
+     * 
+     * @param id the id of the customer to be look-up.
+     * @return a value-object containing the information.
+     */
+    Customer findCustomerByID(int id) throws SQLException;
+
+    /**
+     * Update the customer credit limit to the specified new credit limit.
+     * NOTE: This method is made public in the hope that it will be useful
+     * although performance wise CMP is much suitable for updating
+     * the data-store.
+     * 
+     * @param customerID the customer to be updated.
+     * @param newCreditLimit the new credit limit.
+     * @return the number of rows affected.
+     */
     int updateCreditLimit(int customerID, BigDecimal newCreditLimit);
-    
+
+    /**
+     * Update the customer paid to the specified new paid amount.
+     * NOTE: This method is made public in the hope that it will be useful
+     * although performance wise CMP is much suitable for updating
+     * the data-store.
+     * 
+     * @param customerID the customer to be updated.
+     * @param newPaidAmount the new paid amount.
+     * @return the number of rows affected.
+     */
     int updatePaidAmount(int customerID, BigDecimal newPaidAmount);
 }

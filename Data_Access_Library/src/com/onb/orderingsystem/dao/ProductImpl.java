@@ -16,23 +16,33 @@
 package com.onb.orderingsystem.dao;
 
 import com.onb.orderingsystem.domain.Product;
+import com.onb.orderingsystem.sql.DataSource;
 import java.sql.SQLException;
 
 /**
- * Data access interface for product information
- * retrieval.
+ * Default implementation of ProductDAO interface.
  * 
- * @since Jun-7-2011
+ * @since Jun-8-2011
  * @see "Core J2EE Patterns - Data Access Object"
+ * @see <a href="http://goo.gl/1WAAs">"Don't Repeat The DAO! Naming DAO"</a>
  */
-public interface ProductDAO {
+public class ProductImpl implements ProductDAO {
 
-    /**
-     * Fetch a product information on the data-store.
-     * 
-     * @param sku the stock-keeping unit of the product the be lookup.
-     * @return a value-object with the product information.
-     * @throws SQLException if an SQL error occur.
-     */
-    Product findProductBySKU(String sku) throws SQLException;
+    private DataSource dataSource;
+
+    public ProductImpl(DataSource dataSource) {
+        setDataSource(dataSource);
+    }
+
+    @Override
+    public Product findProductBySKU(String sku) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    private void setDataSource(DataSource dataSource) {
+        if (dataSource == null) {
+            throw new NullPointerException();
+        }
+        this.dataSource = dataSource;
+    }
 }
