@@ -11,8 +11,7 @@ public class Customer {
 	private final int id;
 	private String name;
 	private BigDecimal creditLimit; //calculated value
-	private Set<Order> paidOrders;
-	private Set<Order> unpaidOrders;
+	private Set<Order> orders; //combined Set<Order> unpaidOrders and Set<Order> paidOrders;
 	private BigDecimal totalPaidAmt;
 	private BigDecimal totalUnpaidAmt;
 	
@@ -20,8 +19,7 @@ public class Customer {
 		this.id = id;
 		this.name = name;
 		this.creditLimit = new BigDecimal("10000.00");	
-		this.paidOrders = new LinkedHashSet<Order>();
-		this.unpaidOrders = new LinkedHashSet<Order>();
+		this.orders = new LinkedHashSet<Order>();
 		this.totalPaidAmt = new BigDecimal("0");
 		this.totalUnpaidAmt = new BigDecimal("0");
 	}
@@ -40,26 +38,42 @@ public class Customer {
 	
 	public BigDecimal getTotalPaidAmount(){
 		this.totalPaidAmt = new BigDecimal("0.00");
-		for(Order order: paidOrders){
-			this.totalPaidAmt = this.totalPaidAmt .add(order.getTotal());
+		for(Order order: orders){
+			if(!(order.isPaid())){ //unpaid is false
+				this.totalPaidAmt = this.totalPaidAmt .add(order.getTotal());
+			}
 		}
 		return this.totalPaidAmt.setScale(2, RoundingMode.HALF_UP);
 	}
 	
 	public BigDecimal getTotalUnpaidAmount(){
 		this.totalUnpaidAmt = new BigDecimal("0.00");
-		for(Order order: unpaidOrders){
-			this.totalUnpaidAmt = this.totalUnpaidAmt.add(order.getTotal());
+		for(Order order: orders){
+			if(order.isPaid()){ // unpaid is true
+				this.totalUnpaidAmt = this.totalUnpaidAmt.add(order.getTotal());
+			}
 		}
 		return this.totalUnpaidAmt.setScale(2, RoundingMode.HALF_UP);
 	}
 	
 	public Set<Order> getUnpaidOrders(){
-		return this.unpaidOrders;
+		Set<Order> unpaidOrders = new LinkedHashSet<Order>();
+		for(Order order: orders){
+			if(order.isPaid()){ // unpaid is true
+				unpaidOrders.add(order);
+			}
+		}
+		return unpaidOrders;
 	}
 	
 	public Set<Order> getPaidOrders(){
-		return this.paidOrders;
+		Set<Order> paidOrders = new LinkedHashSet<Order>();
+		for(Order order: orders){
+			if(!(order.isPaid())){ // unpaid is false
+				paidOrders.add(order);
+			}
+		}
+		return paidOrders;
 	}
 	
 	private void updateCreditLimit(){
@@ -84,7 +98,7 @@ public class Customer {
 	}
 	
 	public void addUnpaidOrder(Order order){
-		this.unpaidOrders.add(order);
+		this.orders.add(order);
 		this.creditLimit = this.creditLimit.subtract(order.getTotal());
 	}
 	
@@ -93,11 +107,9 @@ public class Customer {
 			throw new NullPointerException();
 		}
 		
-		if(!(unpaidOrders.contains(order))){
+		if(!(orders.contains(order))){
 			throw new IllegalArgumentException();
 		}
-		this.unpaidOrders.remove(order);
-		this.paidOrders.add(order);
 		
 		order.setAsPaid();
 		BigDecimal amount = new BigDecimal("0"); 
@@ -109,18 +121,10 @@ public class Customer {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((creditLimit == null) ? 0 : creditLimit.hashCode());
+		
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((paidOrders == null) ? 0 : paidOrders.hashCode());
-		result = prime * result
-				+ ((totalPaidAmt == null) ? 0 : totalPaidAmt.hashCode());
-		result = prime * result
-				+ ((totalUnpaidAmt == null) ? 0 : totalUnpaidAmt.hashCode());
-		result = prime * result
-				+ ((unpaidOrders == null) ? 0 : unpaidOrders.hashCode());
+		
 		return result;
 	}
 
@@ -133,11 +137,7 @@ public class Customer {
 		if (getClass() != obj.getClass())
 			return false;
 		Customer other = (Customer) obj;
-		if (creditLimit == null) {
-			if (other.creditLimit != null)
-				return false;
-		} else if (!creditLimit.equals(other.creditLimit))
-			return false;
+		
 		if (id != other.id)
 			return false;
 		if (name == null) {
@@ -145,26 +145,7 @@ public class Customer {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (paidOrders == null) {
-			if (other.paidOrders != null)
-				return false;
-		} else if (!paidOrders.equals(other.paidOrders))
-			return false;
-		if (totalPaidAmt == null) {
-			if (other.totalPaidAmt != null)
-				return false;
-		} else if (!totalPaidAmt.equals(other.totalPaidAmt))
-			return false;
-		if (totalUnpaidAmt == null) {
-			if (other.totalUnpaidAmt != null)
-				return false;
-		} else if (!totalUnpaidAmt.equals(other.totalUnpaidAmt))
-			return false;
-		if (unpaidOrders == null) {
-			if (other.unpaidOrders != null)
-				return false;
-		} else if (!unpaidOrders.equals(other.unpaidOrders))
-			return false;
+		
 		return true;
 	}
 	
