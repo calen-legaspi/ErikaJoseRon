@@ -47,7 +47,8 @@ public interface CustomerDAO {
      * @param newCreditLimit the new credit limit.
      * @return the number of rows affected.
      */
-    int updateCreditLimit(int customerID, BigDecimal newCreditLimit);
+    int updateCreditLimit(int customerID, BigDecimal newCreditLimit)
+            throws SQLException;
 
     /**
      * Update the customer paid to the specified new paid amount.
@@ -59,5 +60,6 @@ public interface CustomerDAO {
      * @param newPaidAmount the new paid amount.
      * @return the number of rows affected.
      */
-    int updatePaidAmount(int customerID, BigDecimal newPaidAmount);
+    int updatePaidAmount(int customerID, BigDecimal newPaidAmount)
+            throws SQLException;
 }

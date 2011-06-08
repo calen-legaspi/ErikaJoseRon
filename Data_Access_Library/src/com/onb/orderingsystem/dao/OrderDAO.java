@@ -16,6 +16,7 @@
 package com.onb.orderingsystem.dao;
 
 import com.onb.orderingsystem.domain.Order;
+import java.sql.SQLException;
 
 /**
  * Data access interface for inserting new order
@@ -32,7 +33,7 @@ public interface OrderDAO {
      * @param orderID
      * @return a value-objects with order information.
      */
-    Order findOrderByID(int orderID);
+    Order findOrderByID(int orderID) throws SQLException;
 
     /**
      * Insert new order to the data-store.
@@ -44,5 +45,5 @@ public interface OrderDAO {
      * @param newOrder
      * @return 
      */
-    int insertOrder(Order newOrder);
+    int insertOrder(Order newOrder) throws SQLException;
 }
