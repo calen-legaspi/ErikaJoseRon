@@ -39,7 +39,14 @@ public class CustomerServiceManager {
 	
 	public Set<Customer> getCustomerList(){
 		CustomerDAO customer = dao.getCustomerDAO();
-		return customer.listAllCustomer();
+		Set<Customer> customers = new HashSet<Customer>();
+		try {
+			customers = customer.listAllCustomer();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return customers;
 	}
 	
 	public Set<Customer> getCustomersWithUnpaidOrder(){
