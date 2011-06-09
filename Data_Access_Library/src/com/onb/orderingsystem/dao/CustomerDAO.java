@@ -18,7 +18,7 @@ package com.onb.orderingsystem.dao;
 import com.onb.orderingsystem.domain.Customer;
 import java.math.BigDecimal;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.Set;
 
 /**
  * Data access interface for updating and search
@@ -44,7 +44,7 @@ public interface CustomerDAO {
      * @return a list of customer.
      * @throws SQLException if an SQL error occur.
      */
-    List<Customer> listAllCustomer() throws SQLException;
+    Set<Customer> listAllCustomer() throws SQLException;
 
     /**
      * Update the customer credit limit to the specified new credit limit.

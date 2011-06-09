@@ -20,8 +20,8 @@ import com.onb.orderingsystem.sql.DataSource;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Default implementation of CustomerDAO interface.
@@ -78,25 +78,18 @@ class CustomerImpl implements CustomerDAO {
     }
 
     @Override
-    public List<Customer> listAllCustomer() throws SQLException {
-        List<Customer> validCustomer = new ArrayList<Customer>();
+    public Set<Customer> listAllCustomer() throws SQLException {
+        Set<Customer> customerSet = new HashSet<Customer>();
         String sql = "SELECT ID, Name, CreditLimit, PaidAmount FROM Customer";
         ResultSet rs = dataSource.executeQuery(sql);
 
         while (rs.next()) {
             int id = rs.getInt(1);
             String name = rs.getString(2);
-//            BigDecimal creditLimit = rs.getBigDecimal(3);
-//            BigDecimal paidAmount = rs.getBigDecimal(4);
-//
-//            if (paidAmount.compareTo(creditLimit) > 0) {
-//                continue;
-//            }
-
-            validCustomer.add(new Customer(id, name));
+            customerSet.add(new Customer(id, name));
         }
 
-        return validCustomer;
+        return customerSet;
     }
 
     private void setDataSource(DataSource dataSource) {
