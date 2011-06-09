@@ -1,0 +1,7 @@
+CREATE TABLE `Customer` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(30) NOT NULL,
+  `CreditLimit` decimal(10,0) DEFAULT '0',
+  `PaidAmount` decimal(10,0) DEFAULT '0',
+  PRIMARY KEY (`ID`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1

@@ -1,0 +1,7 @@
+CREATE TABLE `OrderItem` (
+  `OID` int(11) NOT NULL AUTO_INCREMENT,
+  `ProdSKU` varchar(30) NOT NULL,
+  `QTY` int(11) DEFAULT NULL,
+  `Amount` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`OID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1

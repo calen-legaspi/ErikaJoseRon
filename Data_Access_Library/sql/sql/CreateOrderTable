@@ -1,0 +1,8 @@
+CREATE TABLE `Order` (
+  `ID` int(11) NOT NULL DEFAULT '0',
+  `CustomerID` varchar(30) NOT NULL,
+  `Date` datetime NOT NULL,
+  `OrderStatus` int(11) DEFAULT '0',
+  `OrderItemID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1

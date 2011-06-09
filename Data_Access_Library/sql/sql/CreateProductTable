@@ -1,0 +1,6 @@
+CREATE TABLE `Product` (
+  `SKU` varchar(30) NOT NULL,
+  `Name` varchar(50) DEFAULT NULL,
+  `Price` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`SKU`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1
