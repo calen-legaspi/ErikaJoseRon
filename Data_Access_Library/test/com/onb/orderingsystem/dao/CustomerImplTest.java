@@ -17,7 +17,7 @@ package com.onb.orderingsystem.dao;
 
 import com.onb.orderingsystem.domain.Customer;
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Set;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -59,7 +59,7 @@ public class CustomerImplTest {
 
     @Test
     public void testListAllCustomer() throws Exception {
-        List<Customer> customerList = customerDAO.listAllCustomer();
+        Set<Customer> customerList = customerDAO.listAllCustomer();
         Assert.assertTrue(!customerList.isEmpty());
     }
 }
