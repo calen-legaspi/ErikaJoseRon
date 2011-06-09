@@ -18,6 +18,7 @@ package com.onb.orderingsystem.dao;
 import com.onb.orderingsystem.domain.Customer;
 import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Data access interface for updating and search
@@ -37,6 +38,15 @@ public interface CustomerDAO {
      */
     Customer findCustomerByID(int id) throws SQLException;
 
+    /**
+     * List all customer whose paid amount does not
+     * exceed their credit limit.
+     * 
+     * @return a list of valid customer.
+     * @throws SQLException if an SQL error occur.
+     */
+    List<Customer> listAllValidCustomer() throws SQLException;
+    
     /**
      * Update the customer credit limit to the specified new credit limit.
      * NOTE: This method is made public in the hope that it will be useful

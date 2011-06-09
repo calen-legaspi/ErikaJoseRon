@@ -18,7 +18,10 @@ package com.onb.orderingsystem.dao;
 import com.onb.orderingsystem.domain.Customer;
 import com.onb.orderingsystem.sql.DataSource;
 import java.math.BigDecimal;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Default implementation of CustomerDAO interface.
@@ -37,17 +40,63 @@ class CustomerImpl implements CustomerDAO {
 
     @Override
     public Customer findCustomerByID(int id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Customer customer = null;
+        String sql = "SELECT ID, Name FROM Customer WHERE ID = " + id;
+        ResultSet rs = dataSource.executeQuery(sql);
+
+        if (rs.next()) {
+            customer = new Customer(id, rs.getString(1));
+        }
+
+        return customer;
     }
 
     @Override
-    public int updateCreditLimit(int customerID, BigDecimal newCreditLimit) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public int updateCreditLimit(int customerID, BigDecimal newCreditLimit)
+            throws SQLException {
+        StringBuilder sql = new StringBuilder();
+
+        sql.append("UPDATE Customer SET CreditLimit = ");
+        sql.append(newCreditLimit);
+        sql.append(" WHERE ID = ");
+        sql.append(customerID);
+
+        return dataSource.executeUpdate(sql.toString());
     }
 
     @Override
-    public int updatePaidAmount(int customerID, BigDecimal newPaidAmount) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public int updatePaidAmount(int customerID, BigDecimal newPaidAmount)
+            throws SQLException {
+        StringBuilder sql = new StringBuilder();
+
+        sql.append("UPDATE Customer SET PaidAmount = ");
+        sql.append(newPaidAmount);
+        sql.append(" WHERE ID = ");
+        sql.append(customerID);
+
+        return dataSource.executeUpdate(sql.toString());
+    }
+
+    @Override
+    public List<Customer> listAllValidCustomer() throws SQLException {
+        List<Customer> validCustomer = new ArrayList<Customer>();
+        String sql = "SELECT ID, Name, CreditLimit, PaidAmount FROM Customer";
+        ResultSet rs = dataSource.executeQuery(sql);
+
+        while (rs.next()) {
+            int id = rs.getInt(1);
+            String name = rs.getString(2);
+            BigDecimal creditLimit = rs.getBigDecimal(3);
+            BigDecimal paidAmount = rs.getBigDecimal(4);
+
+            if (paidAmount.compareTo(creditLimit) > 0) {
+                continue;
+            }
+
+            validCustomer.add(new Customer(id, name));
+        }
+
+        return validCustomer;
     }
 
     private void setDataSource(DataSource dataSource) {
