@@ -9,12 +9,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ordering System - Order</title>
+	<script language="Javascript" type="text/javascript">
+		function addItem(){
+			var table = document.getElementById('orderTable');
+			var length = table.rows.length;
+			var row = table.insertRow(length);
+			var cellLeft = row.insertCell(0);
+			
+			var qtyField = document.createElement('input');
+			qtyField.type = 'text';
+			qtyField.name = 'quantity';
+			
+			var cellRight = row.insertCell(1);
+			cellRight.appendChild(qtyField);
+			
+			var productField = document.createElement('select');
+			productField.name = 'Product';
+			
+			<c:forEach var="product" items="${productList}" varStatus="status">
+				productField.option["${status.index}"] = new Option("${product.name}", "${product.skuNumber}");
+			</c:forEach>
+			cellLeft.appendChild(productField);
+			
+		}
+	</script>
+
 </head>
 
 <body>
 	<h1>Order</h1>
 	<form name="order" method="post" action="OrderServlet"> 
-		<table>
+		<table border="1" id="orderTable">
 			<tr>
 				<td>Customer: </td>
 				<td><select name="customer">
@@ -25,11 +50,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td><input type="button" name="addOrderItem" value="Add Item" /> </td>
+				<td><input type="button" name="addOrderItem" value="Add Item" onClick="addItem();"/> </td>
 				<td><input type="button" name="updateOrder" value="Update" /> </td>
-			</tr>
-			<tr>
-				<%-- order items shown here --%>
 			</tr>
 		</table>
 		<input type="submit" />
