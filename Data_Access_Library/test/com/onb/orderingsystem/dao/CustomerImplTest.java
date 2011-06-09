@@ -52,8 +52,8 @@ public class CustomerImplTest {
 
     @Test
     public void testUpdatePaidAmount() throws Exception {
-        BigDecimal newPaidAmount = new BigDecimal("5000.00");
-        int affectedRow = customerDAO.updateCreditLimit(1, newPaidAmount);
+        BigDecimal newPaidAmount = new BigDecimal("5000.47");
+        int affectedRow = customerDAO.updatePaidAmount(1, newPaidAmount);
         Assert.assertTrue(affectedRow == 1);
     }
 
