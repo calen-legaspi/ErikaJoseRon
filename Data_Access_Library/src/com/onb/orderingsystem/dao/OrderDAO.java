@@ -45,5 +45,5 @@ public interface OrderDAO {
      * @param newOrder
      * @return 
      */
-    int insertOrder(Order newOrder) throws SQLException;
+    int[] insertOrder(Order newOrder) throws SQLException;
 }
