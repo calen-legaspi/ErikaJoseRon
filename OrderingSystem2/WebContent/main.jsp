@@ -8,11 +8,13 @@
 </head>
 <body>
 <h1>Ordering System</h1>
-
-	<button type="button" name="createOrder" onClick="location.href='createorder.jsp'">Create Order</button>
-	<button type="button" name="payment" onClick="location.href='payment.jsp'">Payment</button>
-	<button type="button" name="orderHistory" onClick="location.href='history.jsp'">Show Order History</button>
-
-
+<form name="main" method="post" action="RedirectServlet">
+	<select name="useCase">
+		<option value="createOrder">Create Order</option>
+		<option value="payment">Set Payment</option>
+		<option value="history">Show Order History</option>
+	</select>
+	<input type="submit" />
+</form>
 </body>
 </html>
