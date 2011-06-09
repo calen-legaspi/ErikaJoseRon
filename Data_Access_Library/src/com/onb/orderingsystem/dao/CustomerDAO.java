@@ -39,14 +39,13 @@ public interface CustomerDAO {
     Customer findCustomerByID(int id) throws SQLException;
 
     /**
-     * List all customer whose paid amount does not
-     * exceed their credit limit.
+     * List all customer on the data-stores.
      * 
-     * @return a list of valid customer.
+     * @return a list of customer.
      * @throws SQLException if an SQL error occur.
      */
-    List<Customer> listAllValidCustomer() throws SQLException;
-    
+    List<Customer> listAllCustomer() throws SQLException;
+
     /**
      * Update the customer credit limit to the specified new credit limit.
      * NOTE: This method is made public in the hope that it will be useful

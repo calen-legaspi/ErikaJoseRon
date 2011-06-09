@@ -58,8 +58,8 @@ public class CustomerImplTest {
     }
 
     @Test
-    public void testListAllValidCustomer() throws Exception {
-        List<Customer> customerList = customerDAO.listAllValidCustomer();
+    public void testListAllCustomer() throws Exception {
+        List<Customer> customerList = customerDAO.listAllCustomer();
         Assert.assertTrue(!customerList.isEmpty());
     }
 }

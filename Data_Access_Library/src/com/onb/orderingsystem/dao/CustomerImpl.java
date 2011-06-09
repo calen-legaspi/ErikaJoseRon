@@ -78,7 +78,7 @@ class CustomerImpl implements CustomerDAO {
     }
 
     @Override
-    public List<Customer> listAllValidCustomer() throws SQLException {
+    public List<Customer> listAllCustomer() throws SQLException {
         List<Customer> validCustomer = new ArrayList<Customer>();
         String sql = "SELECT ID, Name, CreditLimit, PaidAmount FROM Customer";
         ResultSet rs = dataSource.executeQuery(sql);
@@ -86,12 +86,12 @@ class CustomerImpl implements CustomerDAO {
         while (rs.next()) {
             int id = rs.getInt(1);
             String name = rs.getString(2);
-            BigDecimal creditLimit = rs.getBigDecimal(3);
-            BigDecimal paidAmount = rs.getBigDecimal(4);
-
-            if (paidAmount.compareTo(creditLimit) > 0) {
-                continue;
-            }
+//            BigDecimal creditLimit = rs.getBigDecimal(3);
+//            BigDecimal paidAmount = rs.getBigDecimal(4);
+//
+//            if (paidAmount.compareTo(creditLimit) > 0) {
+//                continue;
+//            }
 
             validCustomer.add(new Customer(id, name));
         }
