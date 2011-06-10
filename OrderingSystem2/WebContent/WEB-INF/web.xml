@@ -21,12 +21,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>myServlet</display-name>
-    <servlet-name>myServlet</servlet-name>
-    <servlet-class>com.onb.orderingsystem.servlet.myServlet</servlet-class>
+    <display-name>RedirectServlet</display-name>
+    <servlet-name>RedirectServlet</servlet-name>
+    <servlet-class>com.onb.orderingsystem.servlet.RedirectServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>myServlet</servlet-name>
-    <url-pattern>/superduperServlet</url-pattern>
+    <servlet-name>RedirectServlet</servlet-name>
+    <url-pattern>/RedirectServlet</url-pattern>
   </servlet-mapping>
 </web-app>
