@@ -17,11 +17,13 @@ package com.onb.orderingsystem.dao;
 
 import com.onb.orderingsystem.domain.Order;
 import com.onb.orderingsystem.domain.OrderItem;
+import com.onb.orderingsystem.domain.Product;
 import com.onb.orderingsystem.sql.DataSource;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
+import java.sql.Date;
+import java.util.Set;
 
 /**
  * Default implementation of OrderDAO interface.
@@ -55,32 +57,28 @@ public class OrderImpl implements OrderDAO {
             if (orderStatus == 1) {
                 order.setAsPaid();
             }
+
+            order = getOrderItem(order);
         }
 
         return order;
     }
 
     @Override
-    public int[] insertOrder(Order newOrder) throws SQLException {
+    public void insertOrder(Order newOrder) throws SQLException {
         String updateOrder = "INSERT INTO Order (ID, CustomerID, Date, "
-                + "OrderStatus, OrderItemID) VALUES (?, ?, '?', ?, ?);";
+                + "OrderStatus) VALUES (?, ?, ?, ?);";
         PreparedStatement orderStatement =
                 dataSource.prepareStatement(updateOrder);
-        int orderID = newOrder.getId();
-        int customerID = newOrder.getCustomerID();
-        Date date = newOrder.getDate();
-        int orderStatus = newOrder.getOrderStatus();
 
-        for (OrderItem item : newOrder.getOrders()) {
-            orderStatement.setInt(1, orderID);
-            orderStatement.setInt(2, customerID);
-            orderStatement.setDate(3, new java.sql.Date(date.getTime()));
-            orderStatement.setInt(4, orderStatus);
-            orderStatement.setInt(5, item.getID());
-            orderStatement.addBatch();
-        }
+        orderStatement.setInt(1, newOrder.getId());
+        orderStatement.setInt(2, newOrder.getCustomerID());
+        orderStatement.setDate(3, new Date(newOrder.getDate().getTime()));
+        orderStatement.setInt(4, newOrder.getOrderStatus());
+        orderStatement.executeUpdate();
 
-        return orderStatement.executeBatch();
+        insertToOrderItem(newOrder.getId(), newOrder.getOrders());
+        dataSource.commit();
     }
 
     private void setDataSource(DataSource dataSource) {
@@ -88,5 +86,48 @@ public class OrderImpl implements OrderDAO {
             throw new NullPointerException();
         }
         this.dataSource = dataSource;
+    }
+
+    private void insertToOrderItem(int id, Set<OrderItem> orders)
+            throws SQLException {
+        String updateItem = "INSERT INTO OrderItem (OrderItemID, "
+                + "ProdSKU, QTY, Amount, OrderID) VALUES (?, ?, ?, ?, ?);";
+        PreparedStatement itemStatement =
+                dataSource.prepareStatement(updateItem);
+        for (OrderItem item : orders) {
+            itemStatement.setInt(1, item.getID());
+            itemStatement.setString(2, item.getProduct().getName());
+            itemStatement.setInt(3, item.getQuantity());
+            itemStatement.setBigDecimal(4, item.computeAmount());
+            itemStatement.setInt(5, id);
+            itemStatement.addBatch();
+        }
+        itemStatement.executeBatch();
+    }
+
+    private Order getOrderItem(Order order) throws SQLException {
+        String sql = "SELECT OrderItemID, ProdSKU, QTY "
+                + "FROM OrderItem WHERE OrderID = " + order.getId();
+        ResultSet rs = dataSource.executeQuery(sql);
+
+        while (rs.next()) {
+            int orderItemID = rs.getInt(1);
+            String sku = rs.getString(2);
+            int qty = rs.getInt(3);
+            Product product = findProduct(sku);
+            order.add(new OrderItem(orderItemID, product, qty));
+        }
+
+        return order;
+    }
+
+    private Product findProduct(String sku) throws SQLException {
+        DAOFactory daoFactory = null;
+        try {
+            daoFactory = DAOFactory.getFactory();
+        } catch (InstantiationException ex) {
+            throw new SQLException(ex);
+        }
+        return daoFactory.getProductDAO().findProductBySKU(sku);
     }
 }

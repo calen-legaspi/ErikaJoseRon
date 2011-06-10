@@ -17,6 +17,8 @@ package com.onb.orderingsystem.dao;
 
 import com.onb.orderingsystem.domain.Product;
 import com.onb.orderingsystem.sql.DataSource;
+import java.math.BigDecimal;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -36,7 +38,18 @@ public class ProductImpl implements ProductDAO {
 
     @Override
     public Product findProductBySKU(String sku) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String sql = "SELECT Name, Price FROM Product WHERE SKU = '"
+                + sku + "'";
+        ResultSet rs = dataSource.executeQuery(sql);
+        Product product = null;
+
+        if (rs.next()) {
+            String name = rs.getString(1);
+            BigDecimal price = rs.getBigDecimal(2);
+            product = new Product(sku, name, price);
+        }
+
+        return product;
     }
 
     private void setDataSource(DataSource dataSource) {

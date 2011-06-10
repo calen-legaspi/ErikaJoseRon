@@ -61,7 +61,10 @@ class CustomerImpl implements CustomerDAO {
         sql.append(" WHERE ID = ");
         sql.append(customerID);
 
-        return dataSource.executeUpdate(sql.toString());
+        int affectedRows = dataSource.executeUpdate(sql.toString());
+        dataSource.commit();
+        
+        return affectedRows;
     }
 
     @Override
@@ -74,7 +77,26 @@ class CustomerImpl implements CustomerDAO {
         sql.append(" WHERE ID = ");
         sql.append(customerID);
 
-        return dataSource.executeUpdate(sql.toString());
+        int affectedRows = dataSource.executeUpdate(sql.toString());
+        dataSource.commit();
+
+        return affectedRows;
+    }
+
+    @Override
+    public int updateUnpaidAmount(int customerID, BigDecimal newUnpaidAmount)
+            throws SQLException {
+        StringBuilder sql = new StringBuilder();
+
+        sql.append("UPDATE Customer SET UnpaidAmount = ");
+        sql.append(newUnpaidAmount);
+        sql.append(" WHERE ID = ");
+        sql.append(customerID);
+
+        int affectedRows = dataSource.executeUpdate(sql.toString());
+        dataSource.commit();
+
+        return affectedRows;
     }
 
     @Override

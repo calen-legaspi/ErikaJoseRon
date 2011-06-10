@@ -71,4 +71,17 @@ public interface CustomerDAO {
      */
     int updatePaidAmount(int customerID, BigDecimal newPaidAmount)
             throws SQLException;
+    
+    /**
+     * Update the customer paid to the specified new paid amount.
+     * NOTE: This method is made public in the hope that it will be useful
+     * although performance wise CMP is much suitable for updating
+     * the data-store.
+     * 
+     * @param customerID the customer to be updated.
+     * @param newPaidAmount the new paid amount.
+     * @return the number of rows affected.
+     */
+    int updateUnpaidAmount(int customerID, BigDecimal newUnpaidAmount)
+            throws SQLException;
 }
