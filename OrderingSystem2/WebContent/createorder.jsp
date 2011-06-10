@@ -27,7 +27,7 @@
 			productField.name = 'product'+(table.rows.length-3);
 			var productOpt = document.createElement('option');
 			productOpt.text = 'coke';
-			productOpt.value = 'coke';
+			productOpt.value = '1066';//skuNumber goes here
 			productField.options[0] = productOpt;
 			cellLeft.appendChild(productField);
 			
@@ -38,26 +38,6 @@
 			
 			*/
 		}
-		
-		function processTable() {
-		    var jsonTable = [];
-		    var tableObj = document.getElementById('orderTable');
-		    if (tableObj) {
-		        for (var x=0, y=tableObj.rows.length; x < y; x++) {
-		            var tableRow = tableObj.rows[x];
-		            var jsonRow = [];
-		            for (var i=0, j=tableRow.cells.length; i < j; i++) {
-		                var tableCell = tableRow.cells[i];
-		                // removes any line feeds or tabs
-		                jsonRow.push(tableCell.innerHTML.replace(/\t|\n/g, ""));
-		            }
-		            jsonTable.push(jsonRow)
-		        }
-		    }
-		    return JSON.stringify(jsonTable);
-		    
-		}
-
 		
 	</script>
 

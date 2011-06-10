@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.onb.orderingsystem.domain.Order;
+import com.onb.orderingsystem.domain.OrderItem;
+import com.onb.orderingsystem.service.OrderServiceManager;
+
 /**
  * Servlet implementation class OrderServlet
  */
@@ -43,6 +47,16 @@ public class OrderServlet extends HttpServlet {
 		String qty = request.getParameter("quantity0");
 		String qty2 = request.getParameter("quantity1");
 		String qty3 = request.getParameter("quantity2");
+		//cheat here for testing purposes
+		int fakeId = 99999;
+		Order order = new Order(fakeId);
+		OrderServiceManager ordermanager = new OrderServiceManager();
+		int skuNumber = -1;
+		
+		while(true){
+			String product = request.getParameter("");
+			break;
+		}
 		for(Enumeration<String> e = request.getParameterNames(); e.hasMoreElements(); ){
 			ParameterNames = e.nextElement();
 			System.out.println(ParameterNames + "<br/>");
