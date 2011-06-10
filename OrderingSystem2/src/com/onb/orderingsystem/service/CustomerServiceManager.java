@@ -57,8 +57,7 @@ public class CustomerServiceManager {
 				if(!(person.getUnpaidOrders().isEmpty())){
 					customers.add(person);
 				}
-			}
-			
+			}	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
