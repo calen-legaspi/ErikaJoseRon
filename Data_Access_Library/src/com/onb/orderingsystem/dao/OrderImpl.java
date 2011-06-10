@@ -42,8 +42,8 @@ public class OrderImpl implements OrderDAO {
 
     @Override
     public Order findOrderByID(int orderID) throws SQLException {
-        String sql = "SELECT DISTINCT ID, CustomerID, Date, OrderStatus"
-                + " FROM Order WHERE Order.ID = " + orderID;
+        String sql = "SELECT ID, CustomerID, Date, OrderStatus"
+                + " FROM `Order` WHERE ID = " + orderID + ";";
         ResultSet rs = dataSource.executeQuery(sql);
         Order order = new Order(orderID);
 
@@ -66,7 +66,7 @@ public class OrderImpl implements OrderDAO {
 
     @Override
     public void insertOrder(Order newOrder) throws SQLException {
-        String updateOrder = "INSERT INTO Order (ID, CustomerID, Date, "
+        String updateOrder = "INSERT INTO `Order` (ID, CustomerID, Date, "
                 + "OrderStatus) VALUES (?, ?, ?, ?);";
         PreparedStatement orderStatement =
                 dataSource.prepareStatement(updateOrder);
@@ -96,7 +96,7 @@ public class OrderImpl implements OrderDAO {
                 dataSource.prepareStatement(updateItem);
         for (OrderItem item : orders) {
             itemStatement.setInt(1, item.getID());
-            itemStatement.setString(2, item.getProduct().getName());
+            itemStatement.setString(2, item.getProduct().getSkuNumber());
             itemStatement.setInt(3, item.getQuantity());
             itemStatement.setBigDecimal(4, item.computeAmount());
             itemStatement.setInt(5, id);
