@@ -1,7 +1,7 @@
 package com.onb.orderingsystem.servlet;
 
 import java.io.IOException;
-import java.util.Set;
+import java.util.Collection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,12 +39,12 @@ public class RedirectServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String useCase = request.getParameter("useCase");
-		Set<Customer> customers;
+		Collection<Customer> customers;
 		
 		if(useCase.equals("createOrder")){
-			customers = customerService.getCustomersWithValidCreditLimit();
+			//customers = customerService.getCustomersWithValidCreditLimit();
 			HttpSession session = request.getSession();
-			session.setAttribute("customerList", customers);
+			//session.setAttribute("customerList", customers);
 			response.sendRedirect("createorder.jsp");
 		}
 		else if(useCase.equals("payment")){
