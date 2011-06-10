@@ -14,17 +14,17 @@ public class OrderItemTest {
 
 	@Test
 	public void testOrderItem() {
-		Product product = new Product(1);
-		OrderItem item = new OrderItem(product, 10);
+		Product product = new Product("1");
+		OrderItem item = new OrderItem(1,product, 10);
 		Assert.assertEquals(item.getProduct(), product);
 		Assert.assertTrue(item.getQuantity()==10);
 	}
 
 	@Test
 	public void testComputeAmount() {
-		Product product = new Product(1);
+		Product product = new Product("1");
 		product.setPrice(new BigDecimal("3.5"));
-		OrderItem item = new OrderItem(product, 10);
+		OrderItem item = new OrderItem(1, product, 10);
 		Assert.assertEquals(item.computeAmount().setScale(2), new BigDecimal("35").setScale(2) );
 		
 	}

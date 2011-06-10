@@ -29,9 +29,9 @@ public class CustomerTest {
 	@Test
 	public void testAddUnpaidOrder() {
 		Order order = new Order(1);
-		Product product = new Product(1);
+		Product product = new Product("1");
 		product.setPrice(new BigDecimal("2500"));
-		order.add(new OrderItem(product, 10));
+		order.add(new OrderItem(1,product, 10));
 		Assert.assertTrue(customer.getUnpaidOrders().isEmpty());
 		
 		customer.addUnpaidOrder(order);
@@ -41,9 +41,9 @@ public class CustomerTest {
 		Assert.assertEquals(mock, customer.getUnpaidOrders());
 		Assert.assertTrue(customer.getUnpaidOrders().contains(order));
 		
-		product = new Product(2);
+		product = new Product("2");
 		product.setPrice(new BigDecimal("2500"));
-		order.add(new OrderItem(product, 10));
+		order.add(new OrderItem(1,product, 10));
 		customer.addUnpaidOrder(order);
 		Assert.assertEquals(1, customer.getUnpaidOrders().size());
 		Assert.assertEquals(new BigDecimal("50000.00"), customer.getTotalUnpaidAmount());
@@ -53,9 +53,9 @@ public class CustomerTest {
 	@Test
 	public void testPayOrder() {
 		Order order = new Order(1);
-		Product product = new Product(1);
+		Product product = new Product("1");
 		product.setPrice(new BigDecimal("2500"));
-		order.add(new OrderItem(product, 10));
+		order.add(new OrderItem(1, product, 10));
 		customer.addUnpaidOrder(order);
 		Assert.assertTrue(order.isPaid());
 		

@@ -22,7 +22,7 @@ public class InventoryTest {
 	@Test
 	public void testAdd() {
 		Inventory inventory = new Inventory();
-		Product product = new Product(1);
+		Product product = new Product("1");
 		InventoryItem item = new InventoryItem(product,10);
 		inventory.add(item);
 		Assert.assertTrue(inventory.getInventory().contains(item));

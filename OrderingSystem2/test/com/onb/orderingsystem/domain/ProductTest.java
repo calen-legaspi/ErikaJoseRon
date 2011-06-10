@@ -14,12 +14,12 @@ public class ProductTest {
 	
 	@Before
 	public void initialize(){
-		product = new Product(1);
+		product = new Product("1");
 	}
 	
 	@Test
 	public void testProduct() {
-		Assert.assertEquals(product, new Product(1));
+		Assert.assertEquals(product, new Product("1"));
 	}
 
 	@Test

@@ -20,9 +20,9 @@ public class OrderTest {
 		Order order = new Order(1);
 		Assert.assertTrue(order.getOrders().isEmpty());
 		
-		Product product = new Product(1);
+		Product product = new Product("1");
 		product.setPrice(new BigDecimal("2500"));
-		OrderItem orderItem = new OrderItem(product,10);
+		OrderItem orderItem = new OrderItem(1, product,10);
 		order.add(orderItem);
 		
 		Assert.assertTrue(order.getOrders().contains(orderItem));
@@ -37,9 +37,9 @@ public class OrderTest {
 		Order order = new Order(1);
 		Assert.assertTrue(order.getOrders().isEmpty());
 		
-		Product product = new Product(1);
+		Product product = new Product("1");
 		product.setPrice(new BigDecimal("2500"));
-		OrderItem orderItem = new OrderItem(product,10);
+		OrderItem orderItem = new OrderItem(1,product,10);
 		order.add(orderItem);
 		
 		order.delete(orderItem);
