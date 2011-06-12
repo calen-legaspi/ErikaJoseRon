@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Ordering System</h1>
-<form name="main" method="post" action="RedirectServlet">
+<form name="main" method="post" action="page1">
 	<select name="useCase">
 		<option value="createOrder">Create Order</option>
 		<option value="payment">Set Payment</option>
