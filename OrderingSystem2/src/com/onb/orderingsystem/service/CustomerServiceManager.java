@@ -1,8 +1,9 @@
 package com.onb.orderingsystem.service;
 
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
+
 
 import com.onb.orderingsystem.dao.CustomerDAO;
 import com.onb.orderingsystem.dao.DAOFactory;
@@ -66,3 +67,4 @@ public class CustomerServiceManager {
 	}
 	
 }
+
