@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+id="WebApp_ID" version="2.5">
   <display-name>OrderingSystemWeb</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -10,26 +14,6 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <description></description>
-    <display-name>TestServlet</display-name>
-    <servlet-name>TestServlet</servlet-name>
-    <servlet-class>com.onb.orderingsystem.servlet.TestServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>TestServlet</servlet-name>
-    <url-pattern>/testing</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>RedirectServlet</display-name>
-    <servlet-name>RedirectServlet</servlet-name>
-    <servlet-class>com.onb.orderingsystem.servlet.RedirectServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RedirectServlet</servlet-name>
-    <url-pattern>/RedirectServlet</url-pattern>
-  </servlet-mapping>
-    <servlet>
     <description></description>
     <display-name>RedirectServlet</display-name>
     <servlet-name>RedirectServlet</servlet-name>
@@ -48,5 +32,15 @@
   <servlet-mapping>
     <servlet-name>OrderServlet</servlet-name>
     <url-pattern>/OrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreateOrder</display-name>
+    <servlet-name>CreateOrder</servlet-name>
+    <jsp-file>/createorder.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateOrder</servlet-name>
+    <url-pattern>/create.order</url-pattern>
   </servlet-mapping>  
 </web-app>
