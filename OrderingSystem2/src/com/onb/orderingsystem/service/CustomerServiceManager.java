@@ -20,9 +20,9 @@ public class CustomerServiceManager {
 		}
 	}
 	
-	public Set<Customer> getCustomersWithValidCreditLimit(){
+	public Collection<Customer> getCustomersWithValidCreditLimit(){
 		CustomerDAO customer = dao.getCustomerDAO();
-		Set<Customer> customers = new HashSet<Customer>();
+		Collection<Customer> customers = new HashSet<Customer>();
 		try {
 			for(Customer person: customer.listAllCustomer()){
 				if(person.getTotalUnpaidAmount().compareTo(person.getCreditLimit())==-1){
@@ -37,9 +37,9 @@ public class CustomerServiceManager {
 		return customers;
 	}
 	
-	public Set<Customer> getCustomerList(){
+	public Collection<Customer> getCustomerList(){
 		CustomerDAO customer = dao.getCustomerDAO();
-		Set<Customer> customers = new HashSet<Customer>();
+		Collection<Customer> customers = new HashSet<Customer>();
 		try {
 			customers = customer.listAllCustomer();
 		} catch (SQLException e) {
@@ -49,9 +49,9 @@ public class CustomerServiceManager {
 		return customers;
 	}
 	
-	public Set<Customer> getCustomersWithUnpaidOrder(){
+	public Collection<Customer> getCustomersWithUnpaidOrder(){
 		CustomerDAO customer = dao.getCustomerDAO();
-		Set<Customer> customers = new HashSet<Customer>();
+		Collection<Customer> customers = new HashSet<Customer>();
 		try {
 			for(Customer person: customer.listAllCustomer()){
 				if(!(person.getUnpaidOrders().isEmpty())){
