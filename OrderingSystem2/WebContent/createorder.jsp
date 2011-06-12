@@ -1,12 +1,12 @@
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*, com.onb.orderingsystem.service.CustomerServiceManager, com.onb.orderingsystem.domain.Customer"%>
+    pageEncoding="UTF-8" import="java.util.*"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp='http://java.sun.com/JSP/Page'>
+<html>
 
 <jsp:useBean id="customerList" type="java.util.Collection" scope="request"></jsp:useBean>
 
@@ -41,22 +41,23 @@
 			</c:forEach>
 			
 			*/
+			
 		}
-		
 	</script>
 
 </head>
 
 <body>
+
+
 	<h1>Order</h1>
 	<form name="order" method="post" action="OrderServlet"> 
-		<table border="1" id="orderTable" name="orderTable">
+		<table border="1" id="orderTable">
 			<tr>
 				<td>Customer: </td>
 				<td><select name="customer">
-				
 					<c:forEach var="customer" items="${customerList}">
-						<option value="${customer.id}" ${customer.name}</option>
+						<option value="${customer.id}">${customer.name}</option>
 					</c:forEach>
 					</select>
 				</td>
@@ -68,6 +69,5 @@
 		</table>
 		<input type="submit" />
 	</form>
-
 </body>
 </html>
