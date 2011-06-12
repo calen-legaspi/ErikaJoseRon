@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashSet;
 
 
+import com.onb.orderingsystem.bean.CustomerObject;
 import com.onb.orderingsystem.dao.CustomerDAO;
 import com.onb.orderingsystem.dao.DAOFactory;
 import com.onb.orderingsystem.domain.Customer;
@@ -20,8 +21,21 @@ public class CustomerServiceManager {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * Converts collection type to CustomerObject
+	*/ 
+	private Collection<CustomerObject> toCustomerObjectBean(Collection<Customer> customers){
+		Collection<CustomerObject> customerList = new HashSet<CustomerObject>();
+		for (Customer customer : customers){
+			CustomerObject customerBean = new CustomerObject();
+			customerBean.setId(customer.getId());
+			customerBean.setName(customer.getName());
+			customerList.add(customerBean);
+		}
+		return customerList;
+	}
 	
-	public Collection<Customer> getCustomersWithValidCreditLimit(){
+	public Collection<CustomerObject> getCustomersWithValidCreditLimit(){
 		CustomerDAO customer = dao.getCustomerDAO();
 		Collection<Customer> customers = new HashSet<Customer>();
 		try {
@@ -35,10 +49,10 @@ public class CustomerServiceManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return customers;
+		return toCustomerObjectBean(customers);
 	}
 	
-	public Collection<Customer> getCustomerList(){
+	public Collection<CustomerObject> getCustomerList(){
 		CustomerDAO customer = dao.getCustomerDAO();
 		Collection<Customer> customers = new HashSet<Customer>();
 		try {
@@ -47,10 +61,10 @@ public class CustomerServiceManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return customers;
+		return toCustomerObjectBean(customers);
 	}
 	
-	public Collection<Customer> getCustomersWithUnpaidOrder(){
+	public Collection<CustomerObject> getCustomersWithUnpaidOrder(){
 		CustomerDAO customer = dao.getCustomerDAO();
 		Collection<Customer> customers = new HashSet<Customer>();
 		try {
@@ -63,7 +77,7 @@ public class CustomerServiceManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return customers;
+		return toCustomerObjectBean(customers);
 	}
 	
 }
