@@ -3,8 +3,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*, com.onb.orderingsystem.service.CustomerServiceManager, com.onb.orderingsystem.domain.Customer"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp='http://java.sun.com/JSP/Page'>
+
+<jsp:useBean id="customerList" type="java.util.Collection" scope="request"></jsp:useBean>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
