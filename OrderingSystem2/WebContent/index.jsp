@@ -4,20 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Ordering System</title>
 </head>
 <body>
-
-<%= session.getAttribute("testText") %>
-
-<form method="post" action="testing">
-	<input type= "text" name="name"/>
-   <input type= "text" name="id"/>
-   <input type="submit"/>
+<h1>Ordering System</h1>
+<form name="main" method="post" action="RedirectServlet">
+	<select name="useCase">
+		<option value="createOrder">Create Order</option>
+		<option value="payment">Set Payment</option>
+		<option value="history">Show Order History</option>
+	</select>
+	<input type="submit" />
 </form>
-
-
-
-Hello World
 </body>
 </html>
