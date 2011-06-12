@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import com.onb.orderingsystem.domain.Customer;
 import com.onb.orderingsystem.service.CustomerServiceManager;
+import com.onb.orderingsystem.bean.CustomerObject;
+
 /**
  * Servlet implementation class RedirectServlet
  */
@@ -39,21 +41,29 @@ public class RedirectServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String useCase = request.getParameter("useCase");
-		Collection<Customer> customers;
+		Collection<CustomerObject> customerList = new HashSet<CustomerObject>();
 		
 		if(useCase.equals("createOrder")){
-			//customers = customerService.getCustomersWithValidCreditLimit();
-			HttpSession session = request.getSession();
-			//session.setAttribute("customerList", customers);
-			response.sendRedirect("createorder.jsp");
+			customerList = customerService.getCustomersWithValidCreditLimit();
+			request.setAttribute("customerList", customerList);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("create.order");
+			rd.forward(request, response);
 		}
 		else if(useCase.equals("payment")){
-			customers = customerService.getCustomersWithUnpaidOrder();
-			response.sendRedirect("payment.jsp");
+			customerList = customerService.getCustomersWithUnpaidOrder();
+			request.setAttribute("customerList", customerList);
+			//response.sendRedirect("payment.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("payment.jsp");
+			rd.forward(request, response);
+			
 		}
 		else if(useCase.equals("history")){
-			customers = customerService.getCustomerList();
-			response.sendRedirect("history.jsp");
+			customerList = customerService.getCustomerList();
+			request.setAttribute("customerList", customerList);
+			//response.sendRedirect("history.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("payment.jsp");
+			rd.forward(request, response);
 		}
 		else response.sendError(404);
 		
