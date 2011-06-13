@@ -4,10 +4,12 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashSet;
 
+import com.onb.orderingsystem.bean.OrderItemObject;
 import com.onb.orderingsystem.bean.OrderObject;
 import com.onb.orderingsystem.dao.DAOFactory;
 import com.onb.orderingsystem.dao.OrderDAO;
 import com.onb.orderingsystem.domain.Order;
+import com.onb.orderingsystem.domain.OrderItem;
 
 public class OrderServiceManager {
 	private DAOFactory dao;
@@ -21,7 +23,30 @@ public class OrderServiceManager {
 		}
 	}
 	
-	public Order findOrderByID(int orderID){
+	private OrderObject toOrderObjectBean(Order order){
+		OrderObject orderBean = new OrderObject();
+		orderBean.setCustomerID(order.getCustomerID());
+		orderBean.setDate(order.getDate());
+		orderBean.setId(order.getId());
+		orderBean.setTotal(order.getTotal());
+		orderBean.setStatus(order.getOrderStatus());
+		
+		Collection<OrderItemObject> items = new HashSet<OrderItemObject>();
+		for(OrderItem orderItem: order.getOrders()){
+			OrderItemObject item = new OrderItemObject();
+			item.setId(orderItem.getID());
+			item.setQuantity(orderItem.getQuantity());
+			item.setAmount(orderItem.computeAmount());
+			
+			ProductServiceManager product = new ProductServiceManager();
+			item.setProduct(product.findProductBySKU(orderItem.getProduct().getSkuNumber()));
+			items.add(item);
+		}
+		orderBean.setOrders(items);
+		return orderBean;
+	}
+	
+	public OrderObject findOrderByID(int orderID){
 		OrderDAO order = dao.getOrderDAO();
 		Order myOrder = null;
 		try {
@@ -30,7 +55,11 @@ public class OrderServiceManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return myOrder;
+		
+		if(myOrder==null){
+			throw new NullPointerException();
+		}
+		return toOrderObjectBean(myOrder);
 	}
 	
 	public void insertOrder(Order newOrder){
@@ -43,19 +72,26 @@ public class OrderServiceManager {
 		}
 	}
 	
-		public Collection<OrderObject> findCustomerOrders(int customerId){
+	public Collection<OrderObject> findCustomerOrders(int customerId){
 		OrderDAO orderDao = dao.getOrderDAO();
 		Collection<OrderObject> orders = new HashSet<OrderObject>(); 
 		try {
 			for(Order order: orderDao.findAllOrderByCustomer(customerId)){
-				OrderObject orderBean = new OrderObject();
-				orderBean.setCustomerID(customerId);
-				orderBean.setDate(order.getDate());
-				orderBean.setOrders(order.getOrders());
-				orderBean.setTotal(order.getTotal());
-				orderBean.setStatus(order.getOrderStatus());
-				orderBean.setId(order.getId());
-				orders.add(orderBean);
+				orders.add(toOrderObjectBean(order));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return orders;
+	}
+	
+	public Collection<Order> findOrders(int customerId){
+		OrderDAO orderDao = dao.getOrderDAO();
+		Collection<Order> orders = new HashSet<Order>(); 
+		try {
+			for(Order order: orderDao.findAllOrderByCustomer(customerId)){
+				orders.add(order);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
