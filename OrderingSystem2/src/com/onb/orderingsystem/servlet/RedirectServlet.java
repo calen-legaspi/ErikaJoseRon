@@ -72,4 +72,3 @@ public class RedirectServlet extends HttpServlet {
 	}
 
 }
-
