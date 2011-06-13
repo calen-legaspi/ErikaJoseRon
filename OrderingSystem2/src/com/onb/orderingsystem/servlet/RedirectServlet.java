@@ -56,6 +56,8 @@ public class RedirectServlet extends HttpServlet {
 			customerList = customerService.getCustomersWithValidCreditLimit();
 			request.setAttribute("customerList", customerList);
 			request.setAttribute("productList", productList);
+			String numItems = "0";
+			request.setAttribute("numItems", numItems);
 			RequestDispatcher rd = request.getRequestDispatcher("create.order");
 			rd.forward(request, response);
 		}

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xmlns="http://java.sun.com/xml/ns/javaee" 
-xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
-id="WebApp_ID" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>OrderingSystemWeb</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -42,8 +38,8 @@ id="WebApp_ID" version="2.5">
   <servlet-mapping>
     <servlet-name>CreateOrder</servlet-name>
     <url-pattern>/create.order</url-pattern>
-  </servlet-mapping>  
-   <servlet>
+  </servlet-mapping>
+  <servlet>
     <description></description>
     <display-name>HistoryServlet</display-name>
     <servlet-name>HistoryServlet</servlet-name>
@@ -63,4 +59,16 @@ id="WebApp_ID" version="2.5">
     <servlet-name>History</servlet-name>
     <url-pattern>/order.history</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>AddItemServlet</display-name>
+    <servlet-name>AddItemServlet</servlet-name>
+    <servlet-class>com.onb.orderingsystem.servlet.AddItemServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>AddItemServlet</servlet-name>
+    <url-pattern>/AddItemServlet</url-pattern>
+  </servlet-mapping>  
 </web-app>
