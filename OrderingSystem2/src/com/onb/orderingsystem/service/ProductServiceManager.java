@@ -2,6 +2,7 @@ package com.onb.orderingsystem.service;
 
 import java.sql.SQLException;
 
+import com.onb.orderingsystem.bean.ProductObject;
 import com.onb.orderingsystem.dao.DAOFactory;
 import com.onb.orderingsystem.dao.ProductDAO;
 import com.onb.orderingsystem.domain.Product;
@@ -18,7 +19,15 @@ public class ProductServiceManager {
 		}
 	}
 	
-	public Product findProductBySKU(String sku){
+	public ProductObject toProductObjectBean(Product product){
+		ProductObject productObject = new ProductObject();
+		productObject.setName(product.getName());
+		productObject.setPrice(product.getPrice());
+		productObject.setSku(product.getSkuNumber());
+		return productObject;
+	}
+	
+	public ProductObject findProductBySKU(String sku){
 		ProductDAO product = dao.getProductDAO();
 		Product myProduct = null;
 		try {
@@ -27,6 +36,6 @@ public class ProductServiceManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return myProduct;
+		return toProductObjectBean(myProduct);
 	}
 }
