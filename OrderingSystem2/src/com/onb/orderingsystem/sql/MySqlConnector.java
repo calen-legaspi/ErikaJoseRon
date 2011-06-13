@@ -47,8 +47,7 @@ public class MySqlConnector implements DataSource {
     /**
      * Constructs a new MySqlConnector. This will load
      * the MySql JDBC driver and will try to connect to
-     * //localhost/Ordering_System? as root user with
-     * admin as default password.
+     * //localhost/Ordering_System? as root user.
      * 
      * @throws SQLException if an SQL error occurs.
      */

@@ -1,6 +1,4 @@
 /*
- * Copyright (C) 2011 rondroid
- *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -58,7 +56,7 @@ public class OrderImplTest {
 
     @Test
     public void testFindCustomerOrder() throws SQLException {
-        Calendar cal = new GregorianCalendar(2010, 5, 10);
+        Calendar cal = new GregorianCalendar(2011, 5, 10);
         Date date = cal.getTime();
         Order order = orderDAO.findOrderByCustomer(1, date);
         assertNotNull(order);
