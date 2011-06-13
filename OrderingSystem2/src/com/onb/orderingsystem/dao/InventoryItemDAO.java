@@ -17,6 +17,7 @@ package com.onb.orderingsystem.dao;
 
 import com.onb.orderingsystem.domain.InventoryItem;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * A data-access interface for updating and fetching of
@@ -50,4 +51,12 @@ public interface InventoryItemDAO {
      * @throws SQLException if an SQL error occurs.
      */
     InventoryItem findItemBySKU(String sku) throws SQLException;
+
+    /**
+     * Retrieve all inventory item on data-store.
+     * 
+     * @return a list of inventory-item value-object.
+     * @throws SQLException if data-store access error occur.
+     */
+    List<InventoryItem> listAllItem() throws SQLException;
 }
