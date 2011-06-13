@@ -31,6 +31,10 @@ public class Order {
         this.total = amount;
     }
 
+    public void setStatus(int status){
+    	unpaid = (status==1)?false:true;
+    }
+    
     public void setAsPaid() {
         this.unpaid = false;
     }
@@ -48,7 +52,7 @@ public class Order {
     }
 
     public Set<OrderItem> getOrders() {
-        return new LinkedHashSet<OrderItem>(this.orders);
+        return this.orders;
     }
 
     public BigDecimal getTotal() {
