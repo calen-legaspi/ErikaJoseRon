@@ -23,6 +23,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -42,8 +43,8 @@ public class OrderImpl implements OrderDAO {
 
     @Override
     public Order findOrderByID(int orderID) throws SQLException {
-        String sql = "SELECT DISTINCT ID, CustomerID, Date, OrderStatus"
-                + " FROM Order WHERE Order.ID = " + orderID;
+        String sql = "SELECT ID, CustomerID, Date, OrderStatus"
+                + " FROM `Order` WHERE ID = " + orderID + ";";
         ResultSet rs = dataSource.executeQuery(sql);
         Order order = new Order(orderID);
 
@@ -66,7 +67,7 @@ public class OrderImpl implements OrderDAO {
 
     @Override
     public void insertOrder(Order newOrder) throws SQLException {
-        String updateOrder = "INSERT INTO Order (ID, CustomerID, Date, "
+        String updateOrder = "INSERT INTO `Order` (ID, CustomerID, Date, "
                 + "OrderStatus) VALUES (?, ?, ?, ?);";
         PreparedStatement orderStatement =
                 dataSource.prepareStatement(updateOrder);
@@ -79,6 +80,39 @@ public class OrderImpl implements OrderDAO {
 
         insertToOrderItem(newOrder.getId(), newOrder.getOrders());
         dataSource.commit();
+    }
+
+    @Override
+    public Order findOrderByCustomer(int customerID, java.util.Date orderDate)
+            throws SQLException {
+        Order order = null;
+        String sql = "SELECT ID FROM `Order` WHERE CustomerID=? AND Date=?";
+        PreparedStatement getOrderStatement = dataSource.prepareStatement(sql);
+
+        getOrderStatement.setInt(1, customerID);
+        getOrderStatement.setDate(2, new java.sql.Date(orderDate.getTime()));
+        ResultSet rs = getOrderStatement.executeQuery();
+
+        if (rs.next()) {
+            order = findOrderByID(rs.getInt(1));
+        }
+
+        return order;
+    }
+
+    @Override
+    public Set<Order> findAllOrderByCustomer(int customerID)
+            throws SQLException {
+        Set<Order> orders = new HashSet<Order>();
+        String sql = "SELECT ID FROM `Order` WHERE CustomerID=" + customerID;
+        ResultSet rs = dataSource.executeQuery(sql);
+
+       while (rs.next()) {
+            Order order = findOrderByID(rs.getInt(1));
+            orders.add(order);
+        }
+
+        return orders;
     }
 
     private void setDataSource(DataSource dataSource) {
@@ -96,7 +130,7 @@ public class OrderImpl implements OrderDAO {
                 dataSource.prepareStatement(updateItem);
         for (OrderItem item : orders) {
             itemStatement.setInt(1, item.getID());
-            itemStatement.setString(2, item.getProduct().getName());
+            itemStatement.setString(2, item.getProduct().getSkuNumber());
             itemStatement.setInt(3, item.getQuantity());
             itemStatement.setBigDecimal(4, item.computeAmount());
             itemStatement.setInt(5, id);
