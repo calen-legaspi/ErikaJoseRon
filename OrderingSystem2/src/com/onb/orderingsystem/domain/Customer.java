@@ -94,7 +94,7 @@ public class Customer {
 
     public void addUnpaidOrder(Order order) {
         this.orders.add(order);
-        this.creditLimit = this.creditLimit.subtract(order.getTotal());
+        //this.creditLimit = this.creditLimit.subtract(order.getTotal());
     }
 
     public void payOrder(Order order) {
