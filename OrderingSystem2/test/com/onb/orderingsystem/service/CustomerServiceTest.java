@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.onb.orderingsystem.bean.CustomerObject;
-
+import com.onb.orderingsystem.bean.OrderObject;
 
 public class CustomerServiceTest {
 	CustomerServiceManager customer;
