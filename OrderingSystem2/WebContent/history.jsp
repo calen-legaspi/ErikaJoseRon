@@ -40,21 +40,35 @@
 			<tr>
 				<td>Orders:</td>
 			</tr>
+		</table>
+	</form>
+	<table>	
+		<th>Order ID</th>
+		<th>Date</th>
+		<th>Total Price</th>
+		<th>Status</th>
 			
-			<c:forEach var="order" items="${orderList}">
+	<c:forEach var="order" items="${orderList}">
+		<form method="post" action="vieworder">
 			<tr>
 				<td>${order.id}</td>
 				<td>${order.date}</td>
 				<td>${order.total}</td>
-				<td>${order.status }</td>
 				<td>
-					<input type="button" value="View"/>
+					<c:choose>
+					<c:when test="${order.status==1}"> Paid </c:when>
+					<c:otherwise> Unpaid </c:otherwise>
+					</c:choose>
+				</td>
+				<td>
+					<input type="hidden" value="${order.id}" name="selectedOrder"/>
+					<input type="submit" value="View" />
 				</td>
 			</tr>
-			</c:forEach>
-			
-		</table>
-	</form>
+		</form>
+	</c:forEach>		
+	</table>
+	
 </body>
 </html>
 
