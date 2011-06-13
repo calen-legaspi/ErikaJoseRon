@@ -1,7 +1,7 @@
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*"%>
+    pageEncoding="UTF-8" import="java.util.*, com.onb.orderingsystem.domain.Product, com.onb.orderingsystem.service.InventoryItemServiceManager, java.util.Collection, com.onb.orderingsystem.domain.InventoryItem"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -9,10 +9,17 @@
 <html>
 
 <jsp:useBean id="customerList" type="java.util.Collection" scope="request"></jsp:useBean>
-
+<jsp:useBean id="productList" type="java.util.Collection" scope="request"></jsp:useBean>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ordering System - Order</title>
+<%
+			InventoryItemServiceManager inventoryservice = new InventoryItemServiceManager();
+			Collection<InventoryItem> productList = new ArrayList<InventoryItem>();
+			productList = inventoryservice.ListItemsInStock();
+			int i=0;
+			i++;
+			%>
 	<script language="Javascript" type="text/javascript">
 		function addItem(){
 			var table = document.getElementById('orderTable');
@@ -30,17 +37,16 @@
 			var productField = document.createElement('select');
 			productField.name = 'product'+(table.rows.length-3);
 			var productOpt = document.createElement('option');
-			productOpt.text = 'coke';
+			productOpt.text = 'ipod';
 			productOpt.value = '1066';//skuNumber goes here
 			productField.options[0] = productOpt;
-			cellLeft.appendChild(productField);
+			//push this to the servlets
 			
-			/*<c:forEach var="product"	
+			<c:forEach var="product"	
 			items="${productList}" varStatus="status">
 				productField.option["${status.index}"] = new Option("${product.name}", "${product.skuNumber}");
-			</c:forEach>
-			
-			*/
+			</c:forEach> 	
+			cellLeft.appendChild(productField);
 			
 		}
 	</script>
