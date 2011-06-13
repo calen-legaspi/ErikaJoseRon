@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xmlns="http://java.sun.com/xml/ns/javaee" 
-xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
-id="WebApp_ID" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>OrderingSystemWeb</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -13,6 +9,7 @@ id="WebApp_ID" version="2.5">
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <description></description>
     <display-name>RedirectServlet</display-name>
@@ -23,6 +20,7 @@ id="WebApp_ID" version="2.5">
     <servlet-name>RedirectServlet</servlet-name>
     <url-pattern>/page1</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <description></description>
     <display-name>OrderServlet</display-name>
@@ -33,6 +31,7 @@ id="WebApp_ID" version="2.5">
     <servlet-name>OrderServlet</servlet-name>
     <url-pattern>/OrderServlet</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <description></description>
     <display-name>CreateOrder</display-name>
@@ -42,8 +41,9 @@ id="WebApp_ID" version="2.5">
   <servlet-mapping>
     <servlet-name>CreateOrder</servlet-name>
     <url-pattern>/create.order</url-pattern>
-  </servlet-mapping>  
-   <servlet>
+  </servlet-mapping>
+  
+  <servlet>
     <description></description>
     <display-name>HistoryServlet</display-name>
     <servlet-name>HistoryServlet</servlet-name>
@@ -53,6 +53,7 @@ id="WebApp_ID" version="2.5">
     <servlet-name>HistoryServlet</servlet-name>
     <url-pattern>/orderhistory</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <description></description>
     <display-name>History</display-name>
@@ -63,4 +64,49 @@ id="WebApp_ID" version="2.5">
     <servlet-name>History</servlet-name>
     <url-pattern>/order.history</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ViewOrderServlet</display-name>
+    <servlet-name>ViewOrderServlet</servlet-name>
+    <servlet-class>com.onb.orderingsystem.servlet.ViewOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewOrderServlet</servlet-name>
+    <url-pattern>/vieworder</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ViewOrder</display-name>
+    <servlet-name>ViewOrder</servlet-name>
+    <jsp-file>/vieworder.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewOrder</servlet-name>
+    <url-pattern>/view.order</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>PaymentServlet</display-name>
+    <servlet-name>PaymentServlet</servlet-name>
+    <servlet-class>com.onb.orderingsystem.servlet.PaymentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PaymentServlet</servlet-name>
+    <url-pattern>/payorder</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>OrderPayment</display-name>
+    <servlet-name>OrderPayment</servlet-name>
+    <jsp-file>/payment.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderPayment</servlet-name>
+    <url-pattern>/pay.order</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
