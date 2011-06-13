@@ -33,11 +33,11 @@ import java.util.Set;
  * @see "Core J2EE Patterns - Data Access Object"
  * @see <a href="http://goo.gl/1WAAs">"Don't Repeat The DAO! Naming DAO"</a>
  */
-public class OrderImpl implements OrderDAO {
+class OrderImpl implements OrderDAO {
 
     private DataSource dataSource;
 
-    public OrderImpl(DataSource dataSource) {
+    OrderImpl(DataSource dataSource) {
         setDataSource(dataSource);
     }
 
@@ -104,10 +104,11 @@ public class OrderImpl implements OrderDAO {
     public Set<Order> findAllOrderByCustomer(int customerID)
             throws SQLException {
         Set<Order> orders = new HashSet<Order>();
-        String sql = "SELECT ID FROM `Order` WHERE CustomerID=" + customerID;
+        String sql = "SELECT ID FROM `Order` WHERE CustomerID="
+                + customerID + " ORDER BY Date DESC";
         ResultSet rs = dataSource.executeQuery(sql);
 
-       while (rs.next()) {
+        while (rs.next()) {
             Order order = findOrderByID(rs.getInt(1));
             orders.add(order);
         }

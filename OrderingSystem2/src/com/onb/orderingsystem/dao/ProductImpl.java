@@ -28,11 +28,11 @@ import java.sql.SQLException;
  * @see "Core J2EE Patterns - Data Access Object"
  * @see <a href="http://goo.gl/1WAAs">"Don't Repeat The DAO! Naming DAO"</a>
  */
-public class ProductImpl implements ProductDAO {
+class ProductImpl implements ProductDAO {
 
     private DataSource dataSource;
 
-    public ProductImpl(DataSource dataSource) {
+    ProductImpl(DataSource dataSource) {
         setDataSource(dataSource);
     }
 
