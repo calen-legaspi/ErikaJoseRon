@@ -65,7 +65,9 @@ public class InventoryItemServiceManager {
 			inventorybean.setId(item.getID());
 			inventorybean.setProduct(item.getProduct());
 			inventorybean.setQuantity(item.getQuantity());
+			inventorybean.setName(inventorybean.getProduct().getName()); //trainwreck. use a product bean in the next iteration?
 			inventoryObjectList.add(inventorybean);
+			
 		}
 		return inventoryObjectList;
 	}

@@ -11,6 +11,8 @@ public class InventoryObject implements Serializable{
 	private int id;
 	private int quantity;
 	private Product product;
+	private String name;
+	
 	public int getId() {
 		return id;
 	}
@@ -48,6 +50,12 @@ public class InventoryObject implements Serializable{
 		if (id != other.id)
 			return false;
 		return true;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getName() {
+		return name;
 	}
 	
 	
