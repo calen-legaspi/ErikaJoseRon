@@ -48,7 +48,7 @@ public class OrderObject implements Serializable {
 			return status;
 		}
 
-		public void setUnpaid(int status) {
+		public void setStatus(int status) {
 			this.status = status;
 		}
 
