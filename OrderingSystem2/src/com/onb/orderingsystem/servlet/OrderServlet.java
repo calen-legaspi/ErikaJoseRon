@@ -52,20 +52,18 @@ public class OrderServlet extends HttpServlet {
 		String productstr = "product";//refactor: should be StringBuilder or StringBuffer?
 		String quantitystr = "quantity";
 		int OrderItemID = 0; 
-		while(true){//make this less dumb
+		/*while(true){//make this less dumb
 			String str = productstr+Integer.toString(itemIndex);
 			skuNumber = request.getParameter(str);
-			if (skuNumber == null) 
-				break;//itemIndex is greater than the number of OrderItems
+			if (skuNumber == null) break;//itemIndex is greater than the number of OrderItems
 			str = quantitystr+Integer.toString(itemIndex);
 			str = request.getParameter(str);
-			if (str == null||str.equals("")) throw new IllegalArgumentException("Invalid quantity");
+			if (str == null) throw new IllegalArgumentException("Invalid quantity");
 			quantity = 	Integer.parseInt(str);
 			OrderItem orderitem = new OrderItem(OrderItemID++,productmanager.findProductBySKU(skuNumber), quantity);
 			order.add(orderitem);
-		}
+		}*/
 		ordermanager.insertOrder(order);
-		//update inventory here. iterate over order.getOrders() calling InventoryItemService updateQuantity() method
 	}
 
 }
