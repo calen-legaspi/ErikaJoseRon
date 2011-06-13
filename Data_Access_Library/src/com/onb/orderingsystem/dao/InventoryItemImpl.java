@@ -16,8 +16,13 @@
 package com.onb.orderingsystem.dao;
 
 import com.onb.orderingsystem.domain.InventoryItem;
+import com.onb.orderingsystem.domain.Product;
 import com.onb.orderingsystem.sql.DataSource;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Default implementation of InventoryItemDAO interface.
@@ -35,13 +40,46 @@ public class InventoryItemImpl implements InventoryItemDAO {
     }
 
     @Override
-    public int updateProductQuantity(String sku, int newQuantity) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public int updateProductQuantity(String sku, int newQuantity)
+            throws SQLException {
+        String sql = "UPDATE InventoryItem SET QTY=? WHERE SKU=?";
+        PreparedStatement stmnt = dataSource.prepareStatement(sql);
+
+        stmnt.setInt(1, newQuantity);
+        stmnt.setString(2, sku);
+
+        return stmnt.executeUpdate();
     }
 
     @Override
     public InventoryItem findItemBySKU(String sku) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        InventoryItem inventory = null;
+        String sql = "SELECT ID, QTY FROM InventoryItem WHERE SKU=?";
+        PreparedStatement stmnt = dataSource.prepareStatement(sql);
+
+        stmnt.setString(1, sku);
+        ResultSet rs = stmnt.executeQuery();
+
+        if (rs.next()) {
+            Product item = findProduct(sku);
+            int id = rs.getInt(1);
+            int qty = rs.getInt(2);
+            inventory = new InventoryItem(id, item, qty);
+        }
+
+        return inventory;
+    }
+
+    @Override
+    public List<InventoryItem> listAllItem() throws SQLException {
+        List<InventoryItem> inventoryItemList = new ArrayList<InventoryItem>();
+        ResultSet rs = dataSource.executeQuery("SELECT SKU FROM InventoryItem");
+
+        while (rs.next()) {
+            inventoryItemList.add(findItemBySKU(rs.getString(1)));
+        }
+
+        return inventoryItemList;
     }
 
     private void setDataSource(DataSource dataSource) {
@@ -49,5 +87,17 @@ public class InventoryItemImpl implements InventoryItemDAO {
             throw new NullPointerException();
         }
         this.dataSource = dataSource;
+    }
+
+    private Product findProduct(String sku) throws SQLException {
+        Product product = null;
+        try {
+            DAOFactory factory = DAOFactory.getFactory();
+            ProductDAO productAccess = factory.getProductDAO();
+            product = productAccess.findProductBySKU(sku);
+        } catch (InstantiationException ex) {
+            throw new SQLException(ex);
+        }
+        return product;
     }
 }
