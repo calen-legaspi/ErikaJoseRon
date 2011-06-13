@@ -16,7 +16,7 @@
 	<h1>History</h1>
 	
 	<form name="order" method="post" action="orderhistory"> 
-		<table border="1" id="orderTable">
+		<table id="orderTable">
 			<tr>
 				<td>Customer: </td>
 				<td><select name="customer">
@@ -33,20 +33,28 @@
 					</select>
 				</td>
 				<td>
-					<input value="View" type="submit" />
+					<input value="Check Customer" type="submit" />
 				</td>
 			</tr>
+			
 			<tr>
-			<!-- must update: change select to addrow() to table jsp, order by date -->
-				<td>Order: </td>
-				<td><select name="order">
-					<c:forEach var="order" items="${orderList}">
-						<option value="${order.id}">${order.id}</option>
-					</c:forEach>
-					</select>
+				<td>Orders:</td>
+			</tr>
+			
+			<c:forEach var="order" items="${orderList}">
+			<tr>
+				<td>${order.id}</td>
+				<td>${order.date}</td>
+				<td>${order.total}</td>
+				<td>${order.status }</td>
+				<td>
+					<input type="button" value="View"/>
 				</td>
 			</tr>
+			</c:forEach>
+			
 		</table>
 	</form>
 </body>
 </html>
+
