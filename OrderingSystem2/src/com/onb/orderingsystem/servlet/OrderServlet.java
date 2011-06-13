@@ -49,9 +49,9 @@ public class OrderServlet extends HttpServlet {
 		String skuNumber = "";
 		int itemIndex = 0;
 		int quantity = 0;
-		String productstr = "product";//refactor: should be StringBuilder
-		String quantitystr = "quantity";//refactor: should be StringBuilder
-		
+		String productstr = "product";//refactor: should be StringBuilder or StringBuffer?
+		String quantitystr = "quantity";
+		int OrderItemID = 0; 
 		while(true){//make this less dumb
 			String str = productstr+Integer.toString(itemIndex);
 			skuNumber = request.getParameter(str);
@@ -60,7 +60,7 @@ public class OrderServlet extends HttpServlet {
 			str = request.getParameter(str);
 			if (str == null) throw new IllegalArgumentException("Invalid quantity");
 			quantity = 	Integer.parseInt(str);
-			OrderItem orderitem = new OrderItem(productmanager.findProductBySKU(skuNumber), quantity);
+			OrderItem orderitem = new OrderItem(OrderItemID++,productmanager.findProductBySKU(skuNumber), quantity);
 			order.add(orderitem);
 		}
 		ordermanager.insertOrder(order);
