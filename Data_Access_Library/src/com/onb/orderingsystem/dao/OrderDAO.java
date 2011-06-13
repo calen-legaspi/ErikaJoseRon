@@ -17,6 +17,8 @@ package com.onb.orderingsystem.dao;
 
 import com.onb.orderingsystem.domain.Order;
 import java.sql.SQLException;
+import java.util.Date;
+import java.util.Set;
 
 /**
  * Data access interface for inserting new order
@@ -45,4 +47,25 @@ public interface OrderDAO {
      * @param newOrder
      */
     void insertOrder(Order newOrder) throws SQLException;
+    
+    /**
+     * Retrieve order information of the specified customer on
+     * the specified date.
+     * 
+     * @param customerID
+     * @param orderDate
+     * @return the order value-object containing the order-info.
+     * @throws SQLException 
+     */
+    Order findOrderByCustomer(int customerID, Date orderDate)
+            throws SQLException;
+    
+    /**
+     * Retrieve all order information of the specified customer.
+     * 
+     * @param customerID
+     * @return a set of order value-object containing the order-info.
+     * @throws SQLException 
+     */
+    Set<Order> findAllOrderByCustomer(int customerID) throws SQLException;
 }

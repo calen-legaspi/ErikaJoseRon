@@ -22,6 +22,9 @@ import com.onb.orderingsystem.domain.OrderItem;
 import com.onb.orderingsystem.domain.Product;
 import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -50,6 +53,14 @@ public class OrderImplTest {
         newOrder.setCustomerID(1);
         newOrder.add(new OrderItem(1, new Product("ABC0", "", new BigDecimal("22000.50")), 2));
         newOrder.add(new OrderItem(2, new Product("ABC1", "", new BigDecimal("35000.50")), 2));
-        //orderDAO.insertOrder(newOrder);
+        orderDAO.insertOrder(newOrder);
+    }
+
+    @Test
+    public void testFindCustomerOrder() throws SQLException {
+        Calendar cal = new GregorianCalendar(2010, 5, 10);
+        Date date = cal.getTime();
+        Order order = orderDAO.findOrderByCustomer(1, date);
+        assertNotNull(order);
     }
 }

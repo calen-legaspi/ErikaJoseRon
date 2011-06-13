@@ -29,12 +29,16 @@ public class CustomerServiceTest {
 
 	@Test
 	public void testGetCustomerList() {
-		fail("Not yet implemented");
+		Collection<CustomerObject> customerList = customer.getCustomerList();
+		Assert.assertFalse(customerList.isEmpty());
 	}
 
 	@Test
 	public void testGetCustomersWithUnpaidOrder() {
-		fail("Not yet implemented");
+		Collection<CustomerObject> customerList = customer.getCustomersWithUnpaidOrder();
+		for(CustomerObject person: customerList){
+			
+		}
 	}
 
 }
