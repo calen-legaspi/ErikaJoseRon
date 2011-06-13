@@ -1,6 +1,8 @@
 package com.onb.orderingsystem.service;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import com.onb.orderingsystem.dao.DAOFactory;
 import com.onb.orderingsystem.dao.InventoryItemDAO;
@@ -38,6 +40,20 @@ public class InventoryItemServiceManager {
 			e.printStackTrace();
 		}
 		return item;
+	}
+	
+	public Collection<InventoryItem> ListItemsInStock(){
+		InventoryItemDAO  inventoryItem = dao.getInventoryItemDAO();
+		Collection<InventoryItem> itemList = new ArrayList<InventoryItem>();
+		try {
+			for(InventoryItem i: inventoryItem.listAllItem()){
+				if(i.getQuantity()>0) itemList.add(i);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return itemList;
 	}
 
 }
