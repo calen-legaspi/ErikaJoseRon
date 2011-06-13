@@ -43,4 +43,24 @@ id="WebApp_ID" version="2.5">
     <servlet-name>CreateOrder</servlet-name>
     <url-pattern>/create.order</url-pattern>
   </servlet-mapping>  
+   <servlet>
+    <description></description>
+    <display-name>HistoryServlet</display-name>
+    <servlet-name>HistoryServlet</servlet-name>
+    <servlet-class>com.onb.orderingsystem.servlet.HistoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HistoryServlet</servlet-name>
+    <url-pattern>/orderhistory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>History</display-name>
+    <servlet-name>History</servlet-name>
+    <jsp-file>/history.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>History</servlet-name>
+    <url-pattern>/order.history</url-pattern>
+  </servlet-mapping>
 </web-app>
