@@ -2,6 +2,7 @@ package com.onb.orderingsystem.bean;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Set;
 
 public class CustomerObject implements Serializable{
 	
@@ -12,6 +13,7 @@ public class CustomerObject implements Serializable{
 	private BigDecimal creditLimit;
 	private BigDecimal unpaidAmt;
 	private BigDecimal paidAmt;
+	private Set<OrderObject> orders;
 	
 	public CustomerObject() {}
 	
@@ -45,4 +47,13 @@ public class CustomerObject implements Serializable{
 	public void setPaidAmt(BigDecimal paidAmt){
 		this.paidAmt = paidAmt;
 	}
+
+	public void setOrders(Set<OrderObject> orders) {
+		this.orders = orders;
+	}
+
+	public Set<OrderObject> getOrders() {
+		return orders;
+	}
 }
+
