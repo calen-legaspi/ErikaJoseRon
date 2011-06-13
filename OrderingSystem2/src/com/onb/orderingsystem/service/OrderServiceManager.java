@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashSet;
 
+import com.onb.orderingsystem.bean.CustomerObject;
 import com.onb.orderingsystem.bean.OrderObject;
 import com.onb.orderingsystem.dao.DAOFactory;
 import com.onb.orderingsystem.dao.OrderDAO;
@@ -51,7 +52,7 @@ public class OrderServiceManager {
 				OrderObject orderBean = new OrderObject();
 				orderBean.setCustomerID(customerId);
 				orderBean.setDate(order.getDate());
-				orderBean.setOrders(order.getOrders());
+				//orderBean.setOrders(order.getOrders());
 				orderBean.setTotal(order.getTotal());
 				orderBean.setStatus(order.getOrderStatus());
 				orderBean.setId(order.getId());
@@ -64,5 +65,22 @@ public class OrderServiceManager {
 		return orders;
 	}
 
+		public int getNewID(){
+			CustomerServiceManager customermanager = new CustomerServiceManager();
+			Collection<CustomerObject> customers = customermanager.getCustomerList();
+			int max = 0;
+			for(CustomerObject customer:customers){
+				Collection<OrderObject> orders = findCustomerOrders(customer.getId());
+				for(OrderObject order : orders){
+					int cur = order.getId();
+					if(cur > max){ 
+						max = cur;
+					}
+				}
+			}
+			return max+1;
+		}
+		
+		
 }
 

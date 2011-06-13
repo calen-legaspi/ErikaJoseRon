@@ -37,8 +37,9 @@ public class AddItemServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(request.getParameter("numItems"));
 		Integer numItems = Integer.parseInt(request.getParameter("numItems"));
-		request.setAttribute("numItems", numItems++);
-		RequestDispatcher rd = request.getRequestDispatcher("order.history");
+		
+		request.setAttribute("numItems", ++numItems);
+		RequestDispatcher rd = request.getRequestDispatcher("create.order");
 		rd.forward(request, response);
 	}
 

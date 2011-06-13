@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.onb.orderingsystem.dao.DAOFactory;
 import com.onb.orderingsystem.domain.Order;
 import com.onb.orderingsystem.domain.OrderItem;
+import com.onb.orderingsystem.domain.Product;
 import com.onb.orderingsystem.service.OrderServiceManager;
 import com.onb.orderingsystem.service.ProductServiceManager;
 
@@ -43,29 +45,34 @@ public class OrderServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String customerName = request.getParameter("customer");
-		//cheat here for testing purposes
-		int fakeId = 99999;
-		Order order = new Order(fakeId);
+		OrderServiceManager ordermanager = new OrderServiceManager();
+		int orderID = ordermanager.getNewID();
+		Order order = new Order(orderID);
 		String skuNumber = "";
-		int itemIndex = 0;
-		int quantity = 0;
-		String productstr = "product";//refactor: should be StringBuilder or StringBuffer?
-		String quantitystr = "quantity";
-		int OrderItemID = 0; 
-		while(true){//make this less dumb
-			String str = productstr+Integer.toString(itemIndex);
-			skuNumber = request.getParameter(str);
-			if (skuNumber == null) 
-				break;//itemIndex is greater than the number of OrderItems
-			str = quantitystr+Integer.toString(itemIndex);
-			str = request.getParameter(str);
-			if (str == null||str.equals("")) throw new IllegalArgumentException("Invalid quantity");
-			quantity = 	Integer.parseInt(str);
-			OrderItem orderitem = new OrderItem(OrderItemID++,productmanager.findProductBySKU(skuNumber), quantity);
+		int OrderItemID, quantity, numItems;
+		OrderItemID = quantity = 0;
+		numItems = Integer.parseInt(request.getParameter("numItems"));
+		String str1 = "product";//refactor: should be StringBuilder or StringBuffer?
+		String str2 = "quantity"; 
+		for(int i = 1; i<numItems; i++){
+			skuNumber = parseOrderItemParameter(i, str1, request);
+			String quantityString = parseOrderItemParameter(i, str2, request);
+			if (quantityString == null||quantityString.equals("")) 
+				throw new IllegalArgumentException("Invalid quantity");
+			quantity = 	Integer.parseInt(quantityString);
+			Product product = productmanager.findProductBySKU(skuNumber);
+			OrderItem orderitem = new OrderItem(OrderItemID++,product, quantity);
 			order.add(orderitem);
 		}
 		ordermanager.insertOrder(order);
 		//update inventory here. iterate over order.getOrders() calling InventoryItemService updateQuantity() method
 	}
 
+	private String parseOrderItemParameter(int i, String string1, HttpServletRequest request){
+		String str = string1+Integer.toString(i);
+		str = request.getParameter(str);
+		return str;
+	}
+	
+	
 }

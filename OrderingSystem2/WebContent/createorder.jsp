@@ -8,9 +8,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
-<jsp:useBean id="customerList" type="java.util.Collection" scope="request"></jsp:useBean>
-<jsp:useBean id="productList" type="java.util.Collection" scope="request"></jsp:useBean>
-<jsp:useBean id="numItems" type="java.lang.String" scope="request"></jsp:useBean>
+<jsp:useBean id="customerList" type="java.util.Collection" scope="session"></jsp:useBean>
+<jsp:useBean id="productList" type="java.util.Collection" scope="session"></jsp:useBean>
+<jsp:useBean id="numItems" type="java.lang.Integer" scope="request"></jsp:useBean>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -52,7 +52,7 @@
 
 
 	<h1>Order</h1>
-	<form name="order" method="post" action="AddItemServlet"> 
+	<form name="order" method="post" action="AddItemServlet">
 		<table border="1" id="orderTable">
 			<tr>
 				<td>Customer: </td>
@@ -66,7 +66,10 @@
 			<tr>
 				<!--  <td><input type="button" name="addOrderItem" value="Add Item" onClick="addItem();"/> </td> -->
 				<input value = "addItem" type = "submit" />  
-				<td><input type="button" name="updateOrder" value="Update" /> </td>
+			</tr>
+			<tr>
+			<td><input type = "hidden" name= "numItems" value="${numItems}" />
+			<!-- <td> <input type="text" size="25" name = "numItems" value="${numItems}"/> </td> -->
 			</tr>
 			</table>
 	</form>
@@ -75,7 +78,8 @@
 		<table border="1" id="orderTable">
 			<tr>
 				<td>OrderItems:</td>
-				<td><input type = "hidden" name= "numItems" value="" /></td>
+				<!--  <td><input type = "hidden" name= "numItems" value="" /></td> -->
+				
 			</tr>
 			<c:choose>
 			<c:when test = "${numItems ne 0}">
@@ -94,6 +98,10 @@
 			</c:forEach>
 			</c:when>
 			</c:choose>
+			<tr>
+			<td><input type = "hidden" name= "numItems" value="${numItems}" /></td>
+			<td><input type = "submit" /></td>
+			</tr>
 		</table>
 	</form>
 </body>
