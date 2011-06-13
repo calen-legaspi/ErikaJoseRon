@@ -31,11 +31,11 @@ import java.util.List;
  * @see "Core J2EE Patterns - Data Access Object"
  * @see <a href="http://goo.gl/1WAAs">"Don't Repeat The DAO! Naming DAO"</a>
  */
-public class InventoryItemImpl implements InventoryItemDAO {
+class InventoryItemImpl implements InventoryItemDAO {
 
     private DataSource dataSource;
 
-    public InventoryItemImpl(DataSource dataSource) {
+    InventoryItemImpl(DataSource dataSource) {
         setDataSource(dataSource);
     }
 
