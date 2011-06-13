@@ -21,15 +21,16 @@ public class CustomerServiceManager {
 			e.printStackTrace();
 		}
 	}
-	/**
-	 * Converts collection type to CustomerObject
-	*/ 
+	
 	private Collection<CustomerObject> toCustomerObjectBean(Collection<Customer> customers){
 		Collection<CustomerObject> customerList = new HashSet<CustomerObject>();
 		for (Customer customer : customers){
 			CustomerObject customerBean = new CustomerObject();
 			customerBean.setId(customer.getId());
 			customerBean.setName(customer.getName());
+			customerBean.setCreditLimit(customer.getCreditLimit());
+			customerBean.setPaidAmt(customer.getTotalPaidAmount());
+			customerBean.setUnpaidAmt(customer.getTotalUnpaidAmount());
 			customerList.add(customerBean);
 		}
 		return customerList;
@@ -81,4 +82,3 @@ public class CustomerServiceManager {
 	}
 	
 }
-
