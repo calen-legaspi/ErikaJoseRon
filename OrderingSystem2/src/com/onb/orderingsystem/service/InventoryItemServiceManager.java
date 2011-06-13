@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import com.onb.orderingsystem.bean.InventoryObject;
 import com.onb.orderingsystem.dao.DAOFactory;
 import com.onb.orderingsystem.dao.InventoryItemDAO;
 import com.onb.orderingsystem.domain.InventoryItem;
@@ -42,7 +43,7 @@ public class InventoryItemServiceManager {
 		return item;
 	}
 	
-	public Collection<InventoryItem> ListItemsInStock(){
+	public Collection<InventoryObject> ListItemsInStock(){
 		InventoryItemDAO  inventoryItem = dao.getInventoryItemDAO();
 		Collection<InventoryItem> itemList = new ArrayList<InventoryItem>();
 		try {
@@ -53,7 +54,20 @@ public class InventoryItemServiceManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return itemList;
+		return toInventoryObjectBean(itemList);
+	}
+
+	private Collection<InventoryObject> toInventoryObjectBean(
+			Collection<InventoryItem> itemList) {
+		Collection<InventoryObject> inventoryObjectList = new ArrayList<InventoryObject>();
+		for(InventoryItem item : itemList){
+			InventoryObject inventorybean = new InventoryObject();
+			inventorybean.setId(item.getID());
+			inventorybean.setProduct(item.getProduct());
+			inventorybean.setQuantity(item.getQuantity());
+			inventoryObjectList.add(inventorybean);
+		}
+		return inventoryObjectList;
 	}
 
 }
