@@ -6,11 +6,10 @@ import java.util.HashSet;
 
 
 import com.onb.orderingsystem.bean.CustomerObject;
-import com.onb.orderingsystem.bean.OrderObject;
 import com.onb.orderingsystem.dao.CustomerDAO;
 import com.onb.orderingsystem.dao.DAOFactory;
 import com.onb.orderingsystem.domain.Customer;
-import com.onb.orderingsystem.domain.Order;
+
 
 public class CustomerServiceManager {
 	private DAOFactory dao;
@@ -24,21 +23,9 @@ public class CustomerServiceManager {
 		}
 	}
 	
-	private Collection<OrderObject> toOrderObjectBean(Collection<Order> orders){
-		Collection<OrderObject> orderList = new HashSet<OrderObject>();
-		for(Order order: orders){
-			OrderObject orderBean = new OrderObject();
-			orderBean.setCustomerID(order.getCustomerID());
-			orderBean.setDate(order.getDate());
-			orderBean.setOrders(order.getOrders());
-			orderBean.setTotal(order.getTotal());
-			orderBean.setStatus(order.getOrderStatus());
-		}
-		return orderList;
-	}
-	
 	private Collection<CustomerObject> toCustomerObjectBean(Collection<Customer> customers){
 		Collection<CustomerObject> customerList = new HashSet<CustomerObject>();
+		OrderServiceManager order = new OrderServiceManager();
 		for (Customer customer : customers){
 			CustomerObject customerBean = new CustomerObject();
 			customerBean.setId(customer.getId());
@@ -46,7 +33,7 @@ public class CustomerServiceManager {
 			customerBean.setCreditLimit(customer.getCreditLimit());
 			customerBean.setPaidAmt(customer.getTotalPaidAmount());
 			customerBean.setUnpaidAmt(customer.getTotalUnpaidAmount());
-			customerBean.setOrders(toOrderObjectBean(customer.getOrders()));
+			customerBean.setOrders(order.findCustomerOrders(customer.getId()));
 			customerList.add(customerBean);
 		}
 		return customerList;
