@@ -3,7 +3,6 @@ package com.onb.orderingsystem.bean;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
-import java.util.Set;
 
 public class CustomerObject implements Serializable{
 	
@@ -56,5 +55,28 @@ public class CustomerObject implements Serializable{
 	public Collection<OrderObject> getOrders() {
 		return orders;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CustomerObject other = (CustomerObject) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+	
 }
 
