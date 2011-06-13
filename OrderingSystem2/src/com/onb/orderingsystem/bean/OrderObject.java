@@ -2,10 +2,8 @@ package com.onb.orderingsystem.bean;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.Date;
-import java.util.Set;
-
-import com.onb.orderingsystem.domain.OrderItem;
 
 public class OrderObject implements Serializable {
 	 
@@ -13,7 +11,7 @@ public class OrderObject implements Serializable {
 	
 		private BigDecimal total;
 	    private int id;
-	    private Set<OrderItem> orders;
+	    private Collection<OrderItemObject> orders;
 	    private Date date;
 	    private int status;
 	    private int customerID;
@@ -28,11 +26,11 @@ public class OrderObject implements Serializable {
 			this.total = total;
 		}
 
-		public Set<OrderItem> getOrders() {
+		public Collection<OrderItemObject> getOrders() {
 			return orders;
 		}
 
-		public void setOrders(Set<OrderItem> orders) {
+		public void setOrders(Collection<OrderItemObject> orders) {
 			this.orders = orders;
 		}
 
