@@ -10,11 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import com.onb.orderingsystem.domain.Customer;
 import com.onb.orderingsystem.service.CustomerServiceManager;
 import com.onb.orderingsystem.bean.CustomerObject;
+import com.onb.orderingsystem.bean.OrderObject;
 
 /**
  * Servlet implementation class RedirectServlet
@@ -44,6 +42,7 @@ public class RedirectServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String useCase = request.getParameter("useCase");
 		Collection<CustomerObject> customerList = new HashSet<CustomerObject>();
+		Collection<OrderObject> orderList = new HashSet<OrderObject>();
 		
 		if(useCase.equals("createOrder")){
 			customerList = customerService.getCustomersWithValidCreditLimit();
@@ -63,8 +62,9 @@ public class RedirectServlet extends HttpServlet {
 		else if(useCase.equals("history")){
 			customerList = customerService.getCustomerList();
 			request.setAttribute("customerList", customerList);
+			request.setAttribute("orderList", orderList);
 			//response.sendRedirect("history.jsp");
-			RequestDispatcher rd = request.getRequestDispatcher("history.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("order.history");
 			rd.forward(request, response);
 		}
 		else response.sendError(404);
