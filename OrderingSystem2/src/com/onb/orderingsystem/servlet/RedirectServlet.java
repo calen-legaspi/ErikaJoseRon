@@ -1,6 +1,7 @@
 package com.onb.orderingsystem.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.onb.orderingsystem.service.CustomerServiceManager;
 import com.onb.orderingsystem.bean.CustomerObject;
 import com.onb.orderingsystem.bean.OrderObject;
+import com.onb.orderingsystem.service.InventoryItemServiceManager;
+import com.onb.orderingsystem.bean.InventoryObject;
 
 /**
  * Servlet implementation class RedirectServlet
@@ -44,10 +47,15 @@ public class RedirectServlet extends HttpServlet {
 		Collection<CustomerObject> customerList = new HashSet<CustomerObject>();
 		Collection<OrderObject> orderList = new HashSet<OrderObject>();
 		
+		
+		InventoryItemServiceManager inventoryservice = new InventoryItemServiceManager();
+		Collection<InventoryObject> productList = new ArrayList<InventoryObject>();
+		productList = inventoryservice.ListItemsInStock();
+		
 		if(useCase.equals("createOrder")){
 			customerList = customerService.getCustomersWithValidCreditLimit();
 			request.setAttribute("customerList", customerList);
-			
+			request.setAttribute("productList", productList);
 			RequestDispatcher rd = request.getRequestDispatcher("create.order");
 			rd.forward(request, response);
 		}

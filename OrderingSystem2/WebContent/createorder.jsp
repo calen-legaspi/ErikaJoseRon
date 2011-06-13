@@ -13,13 +13,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ordering System - Order</title>
-<%
-			InventoryItemServiceManager inventoryservice = new InventoryItemServiceManager();
-			Collection<InventoryItem> productList = new ArrayList<InventoryItem>();
-			productList = inventoryservice.ListItemsInStock();
-			int i=0;
-			i++;
-			%>
 	<script language="Javascript" type="text/javascript">
 		function addItem(){
 			var table = document.getElementById('orderTable');
@@ -37,14 +30,13 @@
 			var productField = document.createElement('select');
 			productField.name = 'product'+(table.rows.length-3);
 			var productOpt = document.createElement('option');
-			productOpt.text = 'ipod';
-			productOpt.value = '1066';//skuNumber goes here
+			//productOpt.text = 'ipod';
+			//productOpt.value = '1066';//skuNumber goes here
 			productField.options[0] = productOpt;
-			//push this to the servlets
 			
 			<c:forEach var="product"	
 			items="${productList}" varStatus="status">
-				productField.option["${status.index}"] = new Option("${product.name}", "${product.skuNumber}");
+				productField.option["${status.index}"] = new Option("${product.product}", "${product.id}");
 			</c:forEach> 	
 			cellLeft.appendChild(productField);
 			
