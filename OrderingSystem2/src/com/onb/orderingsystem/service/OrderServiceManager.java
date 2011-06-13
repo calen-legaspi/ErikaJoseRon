@@ -43,7 +43,7 @@ public class OrderServiceManager {
 		}
 	}
 	
-	public Collection<OrderObject> findCustomerOrders(int customerId){
+		public Collection<OrderObject> findCustomerOrders(int customerId){
 		OrderDAO orderDao = dao.getOrderDAO();
 		Collection<OrderObject> orders = new HashSet<OrderObject>(); 
 		try {
