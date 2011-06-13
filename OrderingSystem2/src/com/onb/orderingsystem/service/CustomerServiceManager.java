@@ -6,9 +6,11 @@ import java.util.HashSet;
 
 
 import com.onb.orderingsystem.bean.CustomerObject;
+import com.onb.orderingsystem.bean.OrderObject;
 import com.onb.orderingsystem.dao.CustomerDAO;
 import com.onb.orderingsystem.dao.DAOFactory;
 import com.onb.orderingsystem.domain.Customer;
+import com.onb.orderingsystem.domain.Order;
 
 
 public class CustomerServiceManager {
@@ -41,9 +43,13 @@ public class CustomerServiceManager {
 	
 	public Collection<CustomerObject> getCustomersWithValidCreditLimit(){
 		CustomerDAO customer = dao.getCustomerDAO();
+		OrderServiceManager orderService = new OrderServiceManager();
 		Collection<Customer> customers = new HashSet<Customer>();
 		try {
 			for(Customer person: customer.listAllCustomer()){
+				for(Order order:orderService.findOrders(person.getId())){
+					person.addUnpaidOrder(order);
+				}
 				if(person.getTotalUnpaidAmount().compareTo(person.getCreditLimit())==-1){
 					customers.add(person);
 				}
@@ -70,10 +76,14 @@ public class CustomerServiceManager {
 	
 	public Collection<CustomerObject> getCustomersWithUnpaidOrder(){
 		CustomerDAO customer = dao.getCustomerDAO();
+		OrderServiceManager orderService = new OrderServiceManager();
 		Collection<Customer> customers = new HashSet<Customer>();
 		try {
 			for(Customer person: customer.listAllCustomer()){
-				if(!(person.getUnpaidOrders().isEmpty())){
+				for(Order order:orderService.findOrders(person.getId())){
+					person.addUnpaidOrder(order);
+				}
+				if(!person.getUnpaidOrders().isEmpty()){
 					customers.add(person);
 				}
 			}	
@@ -81,6 +91,7 @@ public class CustomerServiceManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return toCustomerObjectBean(customers);
 	}
 	
