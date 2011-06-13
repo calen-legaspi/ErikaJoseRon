@@ -15,7 +15,7 @@ public class OrderObject implements Serializable {
 	    private int id;
 	    private Set<OrderItem> orders;
 	    private Date date;
-	    private boolean unpaid;
+	    private int status;
 	    private int customerID;
 
 	    public OrderObject(){ }
@@ -44,12 +44,12 @@ public class OrderObject implements Serializable {
 			this.date = date;
 		}
 
-		public boolean isUnpaid() {
-			return unpaid;
+		public int getStatus() {
+			return status;
 		}
 
-		public void setUnpaid(boolean unpaid) {
-			this.unpaid = unpaid;
+		public void setUnpaid(int status) {
+			this.status = status;
 		}
 
 		public int getCustomerID() {
@@ -66,3 +66,4 @@ public class OrderObject implements Serializable {
 	    
 	    
 }
+
