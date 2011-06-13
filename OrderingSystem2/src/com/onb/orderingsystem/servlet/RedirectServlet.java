@@ -62,8 +62,10 @@ public class RedirectServlet extends HttpServlet {
 		else if(useCase.equals("payment")){
 			customerList = customerService.getCustomersWithUnpaidOrder();
 			request.setAttribute("customerList", customerList);
-			//response.sendRedirect("payment.jsp");
-			RequestDispatcher rd = request.getRequestDispatcher("payment.jsp");
+			int id = 1;
+			request.setAttribute("customerId", id);
+			request.setAttribute("orderList", orderList);
+			RequestDispatcher rd = request.getRequestDispatcher("pay.order");
 			rd.forward(request, response);
 			
 		}
