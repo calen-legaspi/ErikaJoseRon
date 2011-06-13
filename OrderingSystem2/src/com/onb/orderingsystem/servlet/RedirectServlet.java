@@ -62,8 +62,9 @@ public class RedirectServlet extends HttpServlet {
 		else if(useCase.equals("history")){
 			customerList = customerService.getCustomerList();
 			request.setAttribute("customerList", customerList);
+			int id = 1;
+			request.setAttribute("customerId", id);
 			request.setAttribute("orderList", orderList);
-			//response.sendRedirect("history.jsp");
 			RequestDispatcher rd = request.getRequestDispatcher("order.history");
 			rd.forward(request, response);
 		}

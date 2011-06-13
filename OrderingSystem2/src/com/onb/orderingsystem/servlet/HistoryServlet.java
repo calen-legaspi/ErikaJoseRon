@@ -41,7 +41,7 @@ public class HistoryServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int customerId = Integer.parseInt(request.getParameter("customer"));
-		
+		request.setAttribute("customerId", customerId);
 		CustomerObject customer = new CustomerObject();
 		customer.setId(customerId);
 		Collection<CustomerObject> customerList = customerService.getCustomerList();

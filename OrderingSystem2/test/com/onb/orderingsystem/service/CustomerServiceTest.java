@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.onb.orderingsystem.bean.CustomerObject;
-
+import com.onb.orderingsystem.bean.OrderObject;
 
 public class CustomerServiceTest {
 	CustomerServiceManager customer;
@@ -36,8 +36,10 @@ public class CustomerServiceTest {
 	@Test
 	public void testGetCustomersWithUnpaidOrder() {
 		Collection<CustomerObject> customerList = customer.getCustomersWithUnpaidOrder();
+		OrderObject myOrder = new OrderObject();
 		for(CustomerObject person: customerList){
-			
+			myOrder.setStatus(0);
+			Assert.assertTrue(person.getOrders().contains(myOrder));
 		}
 	}
 
