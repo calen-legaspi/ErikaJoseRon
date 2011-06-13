@@ -6,7 +6,6 @@ import java.util.HashSet;
 
 
 import com.onb.orderingsystem.bean.CustomerObject;
-import com.onb.orderingsystem.bean.OrderObject;
 import com.onb.orderingsystem.dao.CustomerDAO;
 import com.onb.orderingsystem.dao.DAOFactory;
 import com.onb.orderingsystem.domain.Customer;

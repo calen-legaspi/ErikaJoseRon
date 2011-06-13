@@ -1,7 +1,5 @@
 package com.onb.orderingsystem.service;
 
-import static org.junit.Assert.*;
-
 import java.util.Collection;
 
 import org.junit.Assert;

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.onb.orderingsystem.domain.Order;
-import com.onb.orderingsystem.domain.OrderItem;
 import com.onb.orderingsystem.service.OrderServiceManager;
 import com.onb.orderingsystem.service.ProductServiceManager;
 

@@ -16,7 +16,6 @@ import com.onb.orderingsystem.bean.OrderItemObject;
 import com.onb.orderingsystem.bean.OrderObject;
 import com.onb.orderingsystem.bean.ProductObject;
 import com.onb.orderingsystem.service.OrderServiceManager;
-import com.onb.orderingsystem.service.ProductServiceManager;
 
 /**
  * Servlet implementation class ViewOrderServlet
