@@ -67,12 +67,13 @@ public class OrderObject implements Serializable {
 		}
 	
 	@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + status;
-			return result;
-		}
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + status;
+		return result;
+	}
 
 		@Override
 		public boolean equals(Object obj) {
@@ -83,10 +84,13 @@ public class OrderObject implements Serializable {
 			if (getClass() != obj.getClass())
 				return false;
 			OrderObject other = (OrderObject) obj;
+			if (id != other.id)
+				return false;
 			if (status != other.status)
 				return false;
 			return true;
 		}    
 	    
 }
+
 
