@@ -6,6 +6,7 @@
 <jsp:useBean id="customerList" type="java.util.Collection" scope="request"></jsp:useBean>
 <jsp:useBean id="orderList" type="java.util.Collection" scope="request"></jsp:useBean>
 <jsp:useBean id="customerId" type="java.lang.Integer" scope="request"></jsp:useBean>
+<jsp:useBean id="show" type="java.lang.Boolean" scope="request"></jsp:useBean>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ordering System - Payment</title>
@@ -39,32 +40,20 @@
 				<td>Orders:</td>
 			</tr>
 		</table>
-	</form>
-	
-	<form method="post" action="payorder">
-	<table>	
-		<th>Order ID</th>
-		<th>Date</th>
-		<th>Total Price</th>
-			
-		<c:forEach var="order" items="${orderList}">
 		
+	<c:if test="${show}">
+		<table>	
 			<tr>
-				<td>
-					<input type="checkbox" value="${order.id}" />
-					${order.id}
-				</td>
-				<td>${order.date}</td>
-				<td>${order.total}</td>
-				<td>
-					<input type="hidden" value="${order.id}" name="selectedOrder"/>
+				<td><select name="order">
+				<c:forEach var="order" items="${orderList}">
+				<option value="${order.id}">Order Id:${order.id}  ${order.date}  Total:${order.total}</option>
+				</c:forEach>
+				</select>	
 				</td>
 			</tr>
-		
-		</c:forEach>
-		
-		<tr> <input type="submit" value="Set As Paid" /> </tr>		
-	</table>
+			<tr> <input type="submit" value="Set As Paid" /> </tr>
+		</table>	
+	</c:if>	
 	</form>
 </body>
 </html>
