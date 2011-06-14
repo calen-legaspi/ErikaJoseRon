@@ -63,6 +63,8 @@ public class RedirectServlet extends HttpServlet {
 			session.setAttribute("productList", productList);
 			int numItems = 0;
 			request.setAttribute("numItems", numItems);
+			int id = 0;
+			request.setAttribute("customerID", id);
 			RequestDispatcher rd = request.getRequestDispatcher("create.order");
 			rd.forward(request, response);
 		}

@@ -11,6 +11,7 @@
 <jsp:useBean id="customerList" type="java.util.Collection" scope="session"></jsp:useBean>
 <jsp:useBean id="productList" type="java.util.Collection" scope="session"></jsp:useBean>
 <jsp:useBean id="numItems" type="java.lang.Integer" scope="request"></jsp:useBean>
+<jsp:useBean id="customerID" type="java.lang.Integer" scope="request"></jsp:useBean>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -68,7 +69,8 @@
 				<input value = "addItem" type = "submit" />  
 			</tr>
 			<tr>
-			<td><input type = "hidden" name= "numItems" value="${numItems}" />
+			<td><input type = "hidden" name= "numItems" value="${numItems}" /></td>
+			<td><input type = "hidden" name= "customerID" value="${customerID}" /></td>
 			<!-- <td> <input type="text" size="25" name = "numItems" value="${numItems}"/> </td> -->
 			</tr>
 			</table>
@@ -87,7 +89,7 @@
 			<tr>
 				<td><select name="product${i}">
 					<c:forEach var="product" items="${productList}">
-						<option value="${product.id}">${product.name}</option>
+						<option value="${product.name}">${product.name}</option>
 					</c:forEach>
 					</select>
 				</td>
@@ -101,6 +103,9 @@
 			<tr>
 			<td><input type = "hidden" name= "numItems" value="${numItems}" /></td>
 			<td><input type = "submit" /></td>
+			</tr>
+			<tr>
+			<td><input type = "hidden" name= "customerID" value="${customerID}" /></td>
 			</tr>
 		</table>
 	</form>

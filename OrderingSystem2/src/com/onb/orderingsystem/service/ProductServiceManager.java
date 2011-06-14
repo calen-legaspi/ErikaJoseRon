@@ -38,4 +38,18 @@ public class ProductServiceManager {
 		}
 		return toProductObjectBean(myProduct);
 	}
+	
+	public Product findProduct(String sku){//I need Products, not ProductBeans to instantiate OrderItem so I can create Orders! 
+		ProductDAO product = dao.getProductDAO();
+		Product myProduct = null;
+		try {
+			myProduct = product.findProductBySKU(sku);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return myProduct;
+		
+	}
+	
 }
