@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="45" version="2.0">
+<workbench progressCount="60" version="2.0">
 <workbenchAdvisor/>
 <window height="720" maximized="true" width="1020" x="227" y="24">
-<fastViewData fastViewLocation="1024"/>
+<fastViewData fastViewLocation="1024">
+<orientation position="512" view="org.eclipse.wst.server.ui.ServersView"/>
+</fastViewData>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
 <coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="104" y="30"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="132" y="30"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="120" y="30"/>
 <coolItem id="org.eclipse.jst.j2ee.J2eeMainActionSet" itemType="typeToolBarContribution" x="84" y="30"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="104" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="152" y="30"/>
 <coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="40" y="30"/>
 <coolItem id="org.eclipse.wst.ws.explorer.explorer" itemType="typeToolBarContribution" x="40" y="30"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -20,6 +23,10 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="184" y="30"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jst.jsp.core.jspsource.source" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -28,23 +35,102 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="1"/>
+<part id="0"/>
+<part id="4"/>
+<part id="3"/>
+<part id="6"/>
+<part id="8"/>
+<part id="5"/>
+<part id="2"/>
+<part id="7"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
+</presentation>
 </folder>
 </info>
 </editorArea>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HistoryServlet.java" partName="HistoryServlet.java" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/src/com/onb/orderingsystem/servlet/HistoryServlet.java" title="HistoryServlet.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/servlet/HistoryServlet.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/src/com/onb/orderingsystem/servlet/HistoryServlet.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1411" selectionTopPixel="646"/>
+</editor>
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="history.jsp" partName="history.jsp" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/WebContent/history.jsp" title="history.jsp" tooltip="OrderingSystem2/WebContent/history.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/WebContent/history.jsp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="209" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="createorder.jsp" partName="createorder.jsp" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/WebContent/createorder.jsp" title="createorder.jsp" tooltip="OrderingSystem2/WebContent/createorder.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/WebContent/createorder.jsp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OrderServlet.java" partName="OrderServlet.java" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/src/com/onb/orderingsystem/servlet/OrderServlet.java" title="OrderServlet.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/servlet/OrderServlet.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/src/com/onb/orderingsystem/servlet/OrderServlet.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2056" selectionTopPixel="663"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RedirectServlet.java" partName="RedirectServlet.java" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/src/com/onb/orderingsystem/servlet/RedirectServlet.java" title="RedirectServlet.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/servlet/RedirectServlet.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/src/com/onb/orderingsystem/servlet/RedirectServlet.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2210" selectionTopPixel="697"/>
+</editor>
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="index.jsp" partName="index.jsp" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/WebContent/index.jsp" title="index.jsp" tooltip="OrderingSystem2/WebContent/index.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/WebContent/index.jsp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="583" selectionTopPixel="1"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OrderServiceManager.java" partName="OrderServiceManager.java" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/src/com/onb/orderingsystem/service/OrderServiceManager.java" title="OrderServiceManager.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/service/OrderServiceManager.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/src/com/onb/orderingsystem/service/OrderServiceManager.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2323" selectionTopPixel="1224"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="web.xml" partName="web.xml" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/WebContent/WEB-INF/web.xml" title="web.xml" tooltip="OrderingSystem2/WebContent/WEB-INF/web.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/WebContent/WEB-INF/web.xml"/>
+<editorState selectionHorizontalPixel="0" selectionLength="11" selectionOffset="1488" selectionTopPixel="510"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomerServiceManager.java" partName="CustomerServiceManager.java" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/src/com/onb/orderingsystem/service/CustomerServiceManager.java" title="CustomerServiceManager.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/service/CustomerServiceManager.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/src/com/onb/orderingsystem/service/CustomerServiceManager.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2872" selectionTopPixel="1275"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InventoryItem.java" partName="InventoryItem.java" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/src/com/onb/orderingsystem/domain/InventoryItem.java" title="InventoryItem.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/domain/InventoryItem.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/src/com/onb/orderingsystem/domain/InventoryItem.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="566"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Inventory.java" partName="Inventory.java" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/src/com/onb/orderingsystem/domain/Inventory.java" title="Inventory.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/domain/Inventory.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/src/com/onb/orderingsystem/domain/Inventory.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="50"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Product.java" partName="Product.java" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/src/com/onb/orderingsystem/domain/Product.java" title="Product.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/domain/Product.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/src/com/onb/orderingsystem/domain/Product.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="150"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ProductServiceManager.java" partName="ProductServiceManager.java" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/src/com/onb/orderingsystem/service/ProductServiceManager.java" title="ProductServiceManager.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/service/ProductServiceManager.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/src/com/onb/orderingsystem/service/ProductServiceManager.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InventoryItemServiceManager.java" partName="InventoryItemServiceManager.java" path="/home/jaraneta/MP2/ErikaJoseRon/OrderingSystem2/src/com/onb/orderingsystem/service/InventoryItemServiceManager.java" title="InventoryItemServiceManager.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/service/InventoryItemServiceManager.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrderingSystem2/src/com/onb/orderingsystem/service/InventoryItemServiceManager.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
 </editors>
 <views>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
 <viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
 </view>
 <view id="org.eclipse.ui.views.AllMarkersView" partName="Markers">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.allSeverityField" categoryGroup="org.eclipse.ui.ide.type" markerContentGenerator="org.eclipse.ui.ide.allMarkersGenerator" partName="Markers">
-<expanded>
-<category IMemento.internal.id="Java Problems"/>
-<category IMemento.internal.id="Faceted Project Problem"/>
-<category IMemento.internal.id="Java Build Path Problems"/>
-</expanded>
-<columnWidths org.eclipse.ui.ide.allSeverityField="584" org.eclipse.ui.ide.locationField="73" org.eclipse.ui.ide.markerType="173" org.eclipse.ui.ide.pathField="143" org.eclipse.ui.ide.resourceField="108"/>
+<columnWidths org.eclipse.ui.ide.allSeverityField="0" org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.allSeverityField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -52,19 +138,34 @@
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
 </view>
-<view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" partName="Snippets"/>
+<view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" partName="Snippets">
+<viewState>
+<entry expansion="false" extent="20" maximum="100" minimum="0" pinned="false" value="0">
+<entry selection="0"/>
+<entry selection="0"/>
+<entry selection="0"/>
+<entry selection="0"/>
+<entry selection="0"/>
+<entry selection="0"/>
+<entry selection="0"/>
+</entry>
+</viewState>
+</view>
 <view id="org.eclipse.ui.views.PropertySheet" partName="Properties"/>
-<view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer"/>
-<view id="org.eclipse.mylyn.tasks.ui.views.tasks" partName="Task List"/>
-<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" showCategories="true"/>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
 </view>
-<view id="org.eclipse.wst.server.ui.ServersView" partName="Servers"/>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks" partName="Task List"/>
+<view id="org.eclipse.wst.server.ui.ServersView" partName="Servers">
+<viewState CommonNavigator.LINKING_ENABLED="0"/>
+</view>
 </views>
 <perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jst.j2ee.internal.perspective.J2EEPerspective" id="org.eclipse.jst.j2ee.J2EEPerspective" label="Java EE"/>
-<alwaysOnActionSet id="org.eclipse.jst.servlet.ui.internal.actions.ConvertToWebModuleTypeActionSet"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
@@ -80,11 +181,11 @@
 <alwaysOnActionSet id="org.eclipse.jst.j2ee.J2eeMainActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
-<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
 <alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
 <alwaysOnActionSet id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
 <alwaysOnActionSet id="org.eclipse.wst.ws.explorer.explorer"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
 <show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <show_view_action id="org.eclipse.wst.server.ui.ServersView"/>
 <show_view_action id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator"/>
@@ -117,12 +218,14 @@
 <perspective_action id="org.eclipse.ui.resourcePerspective"/>
 <perspective_action id="org.eclipse.wst.web.ui.webDevPerspective"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
-<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <view id="org.eclipse.ui.views.AllMarkersView"/>
 <view id="org.eclipse.ui.views.PropertySheet"/>
-<view id="org.eclipse.wst.server.ui.ServersView"/>
 <view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator"/>
 <view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="org.eclipse.wst.server.ui.ServersView"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
 <fastViewBars/>
@@ -147,17 +250,18 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.24950495" ratioLeft="252" ratioRight="758" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottomRight" ratio="0.6988156" ratioLeft="413" ratioRight="178" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.AllMarkersView" appearance="2" expanded="2">
+<info part="org.eclipse.ui.editorss" ratio="0.20516606" ratioLeft="278" ratioRight="1077" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottomRight" ratio="0.6955782" ratioLeft="409" ratioRight="179" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.AllMarkersView" label="Markers"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
-<page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
 <page content="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" label="Data Source Explorer"/>
 <page content="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" label="Snippets"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
 <page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
@@ -167,6 +271,8 @@
 <part id="2"/>
 <part id="3"/>
 <part id="4"/>
+<part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
@@ -183,14 +289,300 @@
 </mainWindow>
 </layout>
 </perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.debug.internal.ui.DebugPerspectiveFactory" id="org.eclipse.debug.ui.DebugPerspective" label="Debug"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.rse.core.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<show_view_action id="org.eclipse.debug.ui.DebugView"/>
+<show_view_action id="org.eclipse.debug.ui.VariableView"/>
+<show_view_action id="org.eclipse.debug.ui.BreakpointView"/>
+<show_view_action id="org.eclipse.debug.ui.ExpressionView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ant.ui.views.AntView"/>
+<show_view_action id="org.eclipse.datatools.sqltools.result.resultView"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<show_view_action id="org.eclipse.jdt.debug.ui.DisplayView"/>
+<perspective_action id="org.eclipse.datatools.sqltools.sqleditor.perspectives.EditorPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<perspective_action id="org.eclipse.wst.jsdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.wst.xml.ui.perspective"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.debug.ui.VariableView"/>
+<view id="org.eclipse.debug.ui.BreakpointView"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="org.eclipse.wst.server.ui.ServersView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.wst.server.ui.ServersView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.749577" ratioLeft="443" ratioRight="148" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
+<page content="org.eclipse.datatools.sqltools.result.resultView" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.debug.ui.DisplayView" label="LabelNotFound"/>
+<page content="org.eclipse.search.SearchResultView" label="LabelNotFound"/>
+<page content="org.eclipse.wst.xsl.jaxp.debug.ui.view1" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.44920993" ratioLeft="199" ratioRight="244" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.50110704" ratioLeft="679" ratioRight="676" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
+<page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/OrderingSystem2/WebContent/index.jsp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OrderingSystem2/src/com/onb/orderingsystem/servlet/OrderServlet.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OrderingSystem2/src/com/onb/orderingsystem/domain/Order.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OrderingSystem2/src/com/onb/orderingsystem/domain/OrderItem.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/OrderingSystem2/WebContent/createorder.jsp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OrderingSystem2/src/com/onb/orderingsystem/service/OrderServiceManager.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OrderingSystem2/src/com/onb/orderingsystem/domain/InventoryItem.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OrderingSystem2/src/com/onb/orderingsystem/domain/Inventory.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OrderingSystem2/src/com/onb/orderingsystem/domain/Product.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OrderingSystem2/src/com/onb/orderingsystem/service/ProductServiceManager.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OrderingSystem2/src/com/onb/orderingsystem/service/InventoryItemServiceManager.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/OrderingSystem2/WebContent/WEB-INF/web.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OrderingSystem2/src/com/onb/orderingsystem/servlet/RedirectServlet.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OrderingSystem2/src/com/onb/orderingsystem/service/CustomerServiceManager.java"/>
+</editors>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2100" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2158" y="0"/>
+</item>
+<item historyLabel="index.jsp" index="0">
+<position info="not_deleted" x="583" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2036" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2065" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2100" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2158" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2228" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2347" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2461" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2534" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2347" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2562" y="0"/>
+</item>
+<item historyLabel="index.jsp" index="0">
+<position info="not_deleted" x="583" y="0"/>
+</item>
+<item historyLabel="Order.java" index="2">
+<position info="not_deleted" x="1697" y="0"/>
+</item>
+<item historyLabel="OrderItem.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Order.java" index="2">
+<position info="not_deleted" x="1697" y="0"/>
+</item>
+<item historyLabel="index.jsp" index="0">
+<position info="not_deleted" x="583" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2562" y="0"/>
+</item>
+<item historyLabel="index.jsp" index="0">
+<position info="not_deleted" x="583" y="0"/>
+</item>
+<item historyLabel="createorder.jsp" index="4">
+<position info="not_deleted" x="2972" y="0"/>
+</item>
+<item historyLabel="OrderServiceManager.java" index="5">
+<position info="not_deleted" x="2228" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2562" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2458" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2469" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2408" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2036" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2347" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2461" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2481" y="0"/>
+</item>
+<item historyLabel="OrderServiceManager.java" index="5">
+<position info="not_deleted" x="2228" y="0"/>
+</item>
+<item historyLabel="index.jsp" index="0">
+<position info="not_deleted" x="583" y="0"/>
+</item>
+<item historyLabel="OrderServiceManager.java" index="5">
+<position info="not_deleted" x="2228" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2451" y="0"/>
+</item>
+<item historyLabel="InventoryItem.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Inventory.java" index="7">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="InventoryItem.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2302" y="0"/>
+</item>
+<item historyLabel="Product.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="InventoryItem.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ProductServiceManager.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="OrderServiceManager.java" index="5">
+<position info="not_deleted" x="2228" y="0"/>
+</item>
+<item historyLabel="InventoryItemServiceManager.java" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="OrderServiceManager.java" index="5">
+<position info="not_deleted" x="2323" y="0"/>
+</item>
+<item historyLabel="OrderServlet.java" index="1">
+<position info="not_deleted" x="2056" y="0"/>
+</item>
+<item historyLabel="web.xml" index="11">
+<position info="not_deleted" x="1488" y="11"/>
+</item>
+<item historyLabel="RedirectServlet.java" index="12">
+<position info="not_deleted" x="2210" y="0"/>
+</item>
+<item historyLabel="CustomerServiceManager.java" index="13">
+<position info="not_deleted" x="2872" y="0"/>
+</item>
+<item historyLabel="ProductServiceManager.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="InventoryItemServiceManager.java" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+</navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<trimItem IMemento.internal.id="topLeft"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.ToolsFolderView"/>
+<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.OutlineFolderView"/>
+<trimItem IMemento.internal.id="bottomRight"/>
+<trimItem IMemento.internal.id="topRight"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
@@ -198,8 +590,46 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.ConsoleFolderView"/>
 </trimArea>
 </trimLayout>
 </window>
-<mruList/>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InventoryItemServiceManager.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/service/InventoryItemServiceManager.java">
+<persistable path="/OrderingSystem2/src/com/onb/orderingsystem/service/InventoryItemServiceManager.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ProductServiceManager.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/service/ProductServiceManager.java">
+<persistable path="/OrderingSystem2/src/com/onb/orderingsystem/service/ProductServiceManager.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Product.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/domain/Product.java">
+<persistable path="/OrderingSystem2/src/com/onb/orderingsystem/domain/Product.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Inventory.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/domain/Inventory.java">
+<persistable path="/OrderingSystem2/src/com/onb/orderingsystem/domain/Inventory.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InventoryItem.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/domain/InventoryItem.java">
+<persistable path="/OrderingSystem2/src/com/onb/orderingsystem/domain/InventoryItem.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OrderItem.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/domain/OrderItem.java">
+<persistable path="/OrderingSystem2/src/com/onb/orderingsystem/domain/OrderItem.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="ApplicationFilterChain.class" tooltip="org.apache.catalina.core.ApplicationFilterChain">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=OrderingSystem2/\/home\/jaraneta\/Applications\/apache-tomcat-7.0.12\/lib\/catalina.jar&lt;org.apache.catalina.core(ApplicationFilterChain.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomerServiceManager.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/service/CustomerServiceManager.java">
+<persistable path="/OrderingSystem2/src/com/onb/orderingsystem/service/CustomerServiceManager.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Order.java" tooltip="OrderingSystem2/src/com/onb/orderingsystem/domain/Order.java">
+<persistable path="/OrderingSystem2/src/com/onb/orderingsystem/domain/Order.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Request.class" tooltip="org.apache.catalina.connector.Request">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=OrderingSystem2/\/home\/jaraneta\/Applications\/apache-tomcat-7.0.12\/lib\/catalina.jar&lt;org.apache.catalina.connector(Request.class"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="RequestFacade.class" tooltip="org.apache.catalina.connector.RequestFacade">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=OrderingSystem2/\/home\/jaraneta\/Applications\/apache-tomcat-7.0.12\/lib\/catalina.jar&lt;org.apache.catalina.connector(RequestFacade.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="web.xml" tooltip="OrderingSystem2/WebContent/WEB-INF/web.xml">
+<persistable path="/OrderingSystem2/WebContent/WEB-INF/web.xml"/>
+</file>
+</mruList>
 </workbench>

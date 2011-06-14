@@ -42,7 +42,10 @@
     <servlet-name>CreateOrder</servlet-name>
     <url-pattern>/create.order</url-pattern>
   </servlet-mapping>
+<<<<<<< HEAD
   
+=======
+>>>>>>> orderexperiment
   <servlet>
     <description></description>
     <display-name>HistoryServlet</display-name>
@@ -67,6 +70,7 @@
   
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>ViewOrderServlet</display-name>
     <servlet-name>ViewOrderServlet</servlet-name>
     <servlet-class>com.onb.orderingsystem.servlet.ViewOrderServlet</servlet-class>
@@ -109,4 +113,15 @@
     <url-pattern>/pay.order</url-pattern>
   </servlet-mapping>
   
+=======
+    <display-name>AddItemServlet</display-name>
+    <servlet-name>AddItemServlet</servlet-name>
+    <servlet-class>com.onb.orderingsystem.servlet.AddItemServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>AddItemServlet</servlet-name>
+    <url-pattern>/AddItemServlet</url-pattern>
+  </servlet-mapping>  
+>>>>>>> orderexperiment
 </web-app>

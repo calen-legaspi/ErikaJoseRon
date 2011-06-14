@@ -11,6 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.onb.orderingsystem.service.CustomerServiceManager;
 import com.onb.orderingsystem.bean.CustomerObject;
 import com.onb.orderingsystem.bean.OrderObject;
@@ -56,6 +58,11 @@ public class RedirectServlet extends HttpServlet {
 			customerList = customerService.getCustomersWithValidCreditLimit();
 			request.setAttribute("customerList", customerList);
 			request.setAttribute("productList", productList);
+			HttpSession session = request.getSession();
+			session.setAttribute("customerList", customerList);
+			session.setAttribute("productList", productList);
+			int numItems = 0;
+			request.setAttribute("numItems", numItems);
 			RequestDispatcher rd = request.getRequestDispatcher("create.order");
 			rd.forward(request, response);
 		}

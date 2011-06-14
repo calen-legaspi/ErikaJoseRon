@@ -4,7 +4,11 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashSet;
 
+<<<<<<< HEAD
 import com.onb.orderingsystem.bean.OrderItemObject;
+=======
+import com.onb.orderingsystem.bean.CustomerObject;
+>>>>>>> orderexperiment
 import com.onb.orderingsystem.bean.OrderObject;
 import com.onb.orderingsystem.dao.DAOFactory;
 import com.onb.orderingsystem.dao.OrderDAO;
@@ -77,6 +81,7 @@ public class OrderServiceManager {
 		Collection<OrderObject> orders = new HashSet<OrderObject>(); 
 		try {
 			for(Order order: orderDao.findAllOrderByCustomer(customerId)){
+<<<<<<< HEAD
 				orders.add(toOrderObjectBean(order));
 			}
 		} catch (SQLException e) {
@@ -92,6 +97,16 @@ public class OrderServiceManager {
 		try {
 			for(Order order: orderDao.findAllOrderByCustomer(customerId)){
 				orders.add(order);
+=======
+				OrderObject orderBean = new OrderObject();
+				orderBean.setCustomerID(customerId);
+				orderBean.setDate(order.getDate());
+				//orderBean.setOrders(order.getOrders());
+				orderBean.setTotal(order.getTotal());
+				orderBean.setStatus(order.getOrderStatus());
+				orderBean.setId(order.getId());
+				orders.add(orderBean);
+>>>>>>> orderexperiment
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -100,5 +115,22 @@ public class OrderServiceManager {
 		return orders;
 	}
 
+		public int getNewID(){
+			CustomerServiceManager customermanager = new CustomerServiceManager();
+			Collection<CustomerObject> customers = customermanager.getCustomerList();
+			int max = 0;
+			for(CustomerObject customer:customers){
+				Collection<OrderObject> orders = findCustomerOrders(customer.getId());
+				for(OrderObject order : orders){
+					int cur = order.getId();
+					if(cur > max){ 
+						max = cur;
+					}
+				}
+			}
+			return max+1;
+		}
+		
+		
 }
 
